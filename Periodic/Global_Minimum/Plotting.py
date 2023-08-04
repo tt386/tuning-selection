@@ -64,6 +64,7 @@ for i in dirlist:
     try:
         with np.load(os.path.join(i,filename)) as data:
             K = data["K"]
+            w = data["w"]
             print("Subregion Length:",K)
             PAP = data["PAP"]
             Phi = data["Phi"]
@@ -270,9 +271,15 @@ plt.yticks(fontsize=30,fontname = "Arial")
 
 plt.savefig(str(args.directory) + "/dR.png",bbox_inches='tight')
 plt.savefig(str(args.directory) + "/dR.eps",bbox_inches='tight')
+plt.close()
 
-
+fig = plt.figure()
+ax = fig.add_subplot(111)
+plt.plot(np.log10(LList),np.log10(dRList/LList), '-k',linewidth=5)
 #Create the stretched version
+
+plt.xticks(fontsize=30,fontname = "Arial")
+plt.yticks(fontsize=30,fontname = "Arial")
 
 """
 #Highlight the linearity
@@ -331,6 +338,9 @@ plt.plot([CurvLogLList[index],CurvLogLList[index]],
 
 MinCurvature = CurvLogLList[index]
 
+plt.text(1.5,-1,r"$\omega=%0.1f$"%(w),fontsize=50,fontname="Arial")
+
+
 #Formatting
 ax.set_xticks([0,MinGradient,MindR,MinCurvature,2])
 ax.set_xticklabels(
@@ -340,12 +350,12 @@ ax.set_yticks([-2,0])
 ax.set_yticklabels(
     [r'$10^{-2}$',r'$10^0$'])
 
+plt.xlim(0,2)
 
-"""
-fig.set_figwidth(20)
+fig.set_figwidth(15)
 ax.tick_params(axis='x', which='major', pad=15)
 fig.tight_layout()
-"""
+
 #Saving
 plt.savefig(str(args.directory) + '/dR_Detail.png',bbox_inches='tight')
 plt.savefig(str(args.directory) + '/dR_Detail.eps',bbox_inches='tight')

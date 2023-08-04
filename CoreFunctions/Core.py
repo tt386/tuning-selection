@@ -99,7 +99,44 @@ def PAPDist_Periodic(K,w,dx,Phi,PAP):
     return xlist, PAPDist
 
 
+def PAPDist_Multiple_ConstrainedInfinite(C,N,xbound,d,dx,Phi,PAP):
+    L = C/N
+    W = L+d
 
+    xlist = np.arange(-xbound,int(C+(N-1)*d + xbound),dx)
+
+    PAPDist = np.zeros(len(xlist))
+    for m in range(1000):
+        PAPDist[xlist%W>L] += ((4*(1-Phi)/np.pi)
+                * (1/(2*m+1))
+                * np.sin((2*m+1)*np.pi*(xlist[xlist%W>L]%(W)-L)/(d))
+                * np.exp(-((2*m+1)*np.pi/(d))**2 * PAP))
+
+    PAPDist[xlist<0] = (1-Phi)*special.erf((-xlist[xlist<0])/np.sqrt(4*PAP))
+    PAPDist[xlist>(C+(N-1)*d)] = (1-Phi)*special.erf((xlist[xlist>(C+(N-1)*d)]-(C+(N-1)*d))/np.sqrt(4*PAP))
+
+
+    return xlist, PAPDist
+
+def PAPDist_Multiple_ConstrainedFinite(B,D,N,xbound,dx,Phi,PAP):
+    L = D*B/N
+    d = D*(1-B)/(N-1)
+    W = L+d
+
+    xlist = np.arange(-xbound,int(D) + xbound,dx)
+
+    PAPDist = np.zeros(len(xlist))
+    for m in range(1000):
+        PAPDist[xlist%W>L] += ((4*(1-Phi)/np.pi)
+                * (1/(2*m+1))
+                * np.sin((2*m+1)*np.pi*(xlist[xlist%W>L]%(W)-L)/(d))
+                * np.exp(-((2*m+1)*np.pi/(d))**2 * PAP))
+
+    PAPDist[xlist<0] = (1-Phi)*special.erf((-xlist[xlist<0])/np.sqrt(4*PAP))
+    PAPDist[xlist>D] = (1-Phi)*special.erf((xlist[xlist>D]-D)/np.sqrt(4*PAP))
+
+
+    return xlist, PAPDist
 
 def Kernel(PAP,xlist):
     """
