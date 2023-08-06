@@ -64,8 +64,8 @@ for i in dirlist:
     try:
         with np.load(os.path.join(i,filename)) as data:
             N = data["N"]
-            C = data["C"]
-            d = data["d"]
+            D = data["D"]
+            B = data["B"]
             print("Region number:",N)
             PAP = data["PAP"]
             Phi = data["Phi"]
@@ -143,11 +143,16 @@ for i in dirlist:
         plt.savefig(str(i) + "/" + str(name) + ".png")
         plt.close()
 
+    C= B*D
+    if N>1:
+        d = (1-B)*D/(N-1)
+    else:
+        d = 1
 
     plt.figure()
     plt.plot(M_xlist,M_PAPDist)
     plt.plot(M_xlist,M_EndDist)
-    plt.xlim(-(N-1)*d,C+2*(N-1)*d)
+    plt.xlim(-C-(N-1)*d,2*C+2*(N-1)*d)
     plt.savefig(str(i) + "/" + "M_PAPandEnd.png")
     plt.close()
 

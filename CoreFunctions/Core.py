@@ -100,6 +100,35 @@ def PAPDist_Periodic(K,w,dx,Phi,PAP):
 
 
 def PAPDist_Multiple_ConstrainedInfinite(C,N,xbound,d,dx,Phi,PAP):
+    """
+    Generate the distribution of Susceptibles at the end of Selection
+    application for the case of N Selection regions, separated by a 
+    constant distance d, in an infinite region of Refuge.
+
+    ARGS:
+    C: float
+        The total width of the selection region
+    N: int
+        The number of Selection regions
+    xbound: float
+        The extent of the Refuge outside the extent of the Selection
+        regions
+    d: float:
+        The separation between selection regions
+    dx: float
+        The width of the spacing in the xlist
+    Phi: float
+        The initial proportion of resistance
+    PAP: float
+        The time over which selection pressure applied
+
+    RETURNS
+    xlist: 1D numpy array of floats:
+        The spatial distribution
+    PAPDist: 1D numpy array of floats:
+        The distribution of Susceptibles at the end of selection pressure
+    """
+
     L = C/N
     W = L+d
 
@@ -119,21 +148,55 @@ def PAPDist_Multiple_ConstrainedInfinite(C,N,xbound,d,dx,Phi,PAP):
     return xlist, PAPDist
 
 def PAPDist_Multiple_ConstrainedFinite(B,D,N,xbound,dx,Phi,PAP):
+    """
+    Generate the distribution of Susceptibles at the end of Selection
+    application for the case of N Selection regions, within a constant
+    size domain of size D, of which a proportion B is selection region,
+    in an infinite region of Refuge.
+
+    ARGS:
+    B: float
+        The proportion of the domain which is Selection region
+    D: float:
+        The total extent of the domain where Selection region can be.
+    N: int
+        The number of Selection regions
+    xbound: float
+        The extent of the Refuge outside the extent of the Selection
+        regions
+    dx: float
+        The width of the spacing in the xlist
+    Phi: float
+        The initial proportion of resistance
+    PAP: float
+        The time over which selection pressure applied
+
+    RETURNS
+    xlist: 1D numpy array of floats:
+        The spatial distribution
+    PAPDist: 1D numpy array of floats:
+        The distribution of Susceptibles at the end of selection pressure
+    """
+
     L = D*B/N
-    d = D*(1-B)/(N-1)
-    W = L+d
+    if N == 1:
+        xlist,PAPDist = PAPDist_Single(xbound,L,dx,Phi,PAP)
 
-    xlist = np.arange(-xbound,int(D) + xbound,dx)
+    else:
+        d = D*(1-B)/(N-1)
+        W = L+d
 
-    PAPDist = np.zeros(len(xlist))
-    for m in range(1000):
-        PAPDist[xlist%W>L] += ((4*(1-Phi)/np.pi)
-                * (1/(2*m+1))
-                * np.sin((2*m+1)*np.pi*(xlist[xlist%W>L]%(W)-L)/(d))
-                * np.exp(-((2*m+1)*np.pi/(d))**2 * PAP))
+        xlist = np.arange(-xbound,int(D) + xbound,dx)
 
-    PAPDist[xlist<0] = (1-Phi)*special.erf((-xlist[xlist<0])/np.sqrt(4*PAP))
-    PAPDist[xlist>D] = (1-Phi)*special.erf((xlist[xlist>D]-D)/np.sqrt(4*PAP))
+        PAPDist = np.zeros(len(xlist))
+        for m in range(1000):
+            PAPDist[xlist%W>L] += ((4*(1-Phi)/np.pi)
+                    * (1/(2*m+1))
+                    * np.sin((2*m+1)*np.pi*(xlist[xlist%W>L]%(W)-L)/(d))
+                    * np.exp(-((2*m+1)*np.pi/(d))**2 * PAP))
+
+        PAPDist[xlist<0] = (1-Phi)*special.erf((-xlist[xlist<0])/np.sqrt(4*PAP))
+        PAPDist[xlist>D] = (1-Phi)*special.erf((xlist[xlist>D]-D)/np.sqrt(4*PAP))
 
 
     return xlist, PAPDist

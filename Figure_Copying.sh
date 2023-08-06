@@ -23,6 +23,12 @@ Sources=(
 	Constrained_Infinite/SaveFiles/C_1.000_d_10.000_MinN_1.00000_MaxN_20.00000_NNum_20_xbound_1000_dx_5.0E-04_PAP_1.0E-01_Phi_1.0E-05/dR.png
 	Constrained_Infinite/SaveFiles/C_1.000_d_1.000_MinN_1.00000_MaxN_20.00000_NNum_20_xbound_1000_dx_5.0E-04_PAP_1.0E-01_Phi_1.0E-05/dR.png
 
+	Constrained_Finite/SaveFiles/D_10.000_B_0.500_MinN_1.00000_MaxN_20.00000_NNum_20_xbound_1000_dx_2.5E-03_PAP_1.0E-01_Phi_1.0E-05/dR.png
+	Constrained_Finite/SaveFiles/D_10.000_B_0.800_MinN_1.00000_MaxN_20.00000_NNum_20_xbound_1000_dx_1.0E-03_PAP_1.0E-01_Phi_1.0E-05/dR.png
+	Constrained_Finite/SaveFiles/D_100.000_B_0.500_MinN_1.00000_MaxN_200.00000_NNum_200_xbound_1000_dx_2.5E-03_PAP_1.0E-01_Phi_1.0E-05/dR.png
+	Constrained_Finite/SaveFiles/D_100.000_B_0.800_MinN_1.00000_MaxN_200.00000_NNum_200_xbound_1000_dx_1.0E-03_PAP_1.0E-01_Phi_1.0E-05/dR.png
+	Constrained_Finite/SaveFiles/D_1000.000_B_0.500_MinN_1.00000_MaxN_2001.00000_NNum_201_xbound_1000_dx_2.5E-03_PAP_1.0E-01_Phi_1.0E-05/dR.png
+	Constrained_Finite/SaveFiles/D_1000.000_B_0.800_MinN_1.00000_MaxN_2001.00000_NNum_201_xbound_1000_dx_1.0E-03_PAP_1.0E-01_Phi_1.0E-05/dR.png
 	)
 
 Names=(
@@ -45,6 +51,13 @@ Names=(
 	Fig5_C1_d0.1.png
         Fig5_C1_d1.png
         Fig5_C1_d10.png
+
+	Fig6_D10_B0.5.png
+	Fig6_D10_B0.8.png
+	Fig6_D100_B0.5.png
+        Fig6_D100_B0.8.png
+	Fig6_D1000_B0.5.png
+        Fig6_D1000_B0.8.png
 	)
 
 for i in "${!Sources[@]}"; do
