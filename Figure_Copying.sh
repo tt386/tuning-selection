@@ -10,6 +10,9 @@ Sources=(
 	Simulations/Single/Global_Minimum/SaveFiles/MinL_0.01000_MaxL_100.00000_LNum_100_xbound_1000_dx_1.0E-03_PAP_1.0E-01_Phi_1.0E-05/dR.png
 
 	Simulations/Single/Global_Minimum/SaveFiles/MinL_0.01000_MaxL_100.00000_LNum_100_xbound_1000_dx_1.0E-03_PAP_1.0E-01_Phi_1.0E-05/dR_Stretch.png
+	Simulations/Single/SingleSystemEvolution/SaveFiles/MinL_10.00000_MaxL_40.00000_LNum_3_xbound_1000_dx_1.0E-01_PAP_1.0E-01_Phi_1.0E-05/L_40.00000/5_PostBreedROnly.png
+	Simulations/Single/SingleSystemEvolution/SaveFiles/MinL_10.00000_MaxL_40.00000_LNum_3_xbound_1000_dx_1.0E-01_PAP_1.0E-01_Phi_1.0E-05/L_20.00000/5_PostBreedROnly.png
+	Simulations/Single/SingleSystemEvolution/SaveFiles/MinL_10.00000_MaxL_40.00000_LNum_3_xbound_1000_dx_1.0E-01_PAP_1.0E-01_Phi_1.0E-05/L_10.00000/5_PostBreedROnly.png
 	Simulations/Single/UpperBound/Vary_Phi/SaveFiles/MinL_3.16228_MaxL_31.62278_LNum_200_xbound_1000_minPhi_-12_maxPhi_-1_Phinum_12_PAP_1.0E-01/LU.png
 	Simulations/Single/UpperBound/Vary_PAP/SaveFiles/MinL_0.10000_MaxL_1000.00000_LNum_100_xbound_1000_minPAP_0.100_maxPAP_0.900_PAPnum_9_Phi_1.0E-05/LU.png
 
@@ -43,6 +46,9 @@ Names=(
 	Fig1b_SingleGlobalMinimum.png
 
 	Fig2a_SingleGlobalMinimum.png
+	Fig2b_L40.png
+	Fig2b_L20.png
+	Fig2b_L10.png
 	Fig2ci_UpperBoundWithPhi.png
 	Fig2cii_UpperBoundWithPAP.png
 
