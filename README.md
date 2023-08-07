@@ -100,13 +100,21 @@ The case of a single Selction region. There are two points of interest: the glob
 
 For $P=0.1, \Phi=10^{-5}$ we vary the length of the Selection region and calculate the change in Resistant pests over a domain so large that the periodic effects of the circular convolution have negligible effect. The result is a detailed global minimum of change in Resistance number per Selection region size with changing Selection region size.
 
+![Single Global Minimum](./RawFigs/Fig1b_SingleGlobalMinimum.png)
+
 ##### UpperBound
 
 We once again vary the size of the Selection region size $L$, but for different $P$ or $\Phi$ values in `Vary_PAP` and `Vary_Phi`, respectively. This is in order to measure how the region of highest curvature changes with these values, to validate the analytical theory.
 
+![Single UpperBoundPAP](./RawFigs/Fig2cii_UpperBoundWithPAP.png)
+
+![Single UpperBoundPhi](./RawFigs/Fig2ci_UpperBoundWithPhi.png)
+
 #### Periodic
 
 The case of an infinite sequence of Selection and Refuge regions, effectively meaning there is a comparatively small region of Refuge and Selection regions with periodic boundary conditions. The width of the periodic sub-unit is $K$ and the proportion of the region which is Refuge is $\omega$.
+
+![Periodic Global Minimum](./RawFigs/Fig3a_PeriodicGlobalMinimum.png)
 
 ##### Global Minimum
 
@@ -114,7 +122,11 @@ For $P=0.1, \Phi=10^{-5}, \omega=0.1$ we vary the length of the periodic sub-uni
 
 ##### Vary_w
 
-We again vary the periodic sub-region length $K$, but for different $\omega$ values in order to measure how the region of minimum gradient changes with $\omega$ to validate the analytical theory for a lower bound.
+We again vary the periodic sub-region length $K$, but for different $\omega$ values in order to measure how the region of minimum gradient changes with $\omega$ to validate the analytical theory for a lower bound, and how the region of maximum curvature changes with $\omega$ to validate the analytical theory for the upper bound.
+
+![Periodic LowerBound](./RawFigs/Fig3bi_LowerBoundWithw.png)
+
+![Periodic UpperBound](./RawFigs/Fig3bii_UpperBoundWithw.png)
 
 #### Constrained Infinite
 
@@ -126,7 +138,9 @@ Consider a total amount of Selection region, of total width $C$. This is split u
 
 * $1$ 'single' region of length $C+(N-1)\delta$: this is accurate when the Selection regions are so close together that the contribution of the Refuge regions between them are negligible.
 
-#### Constrained Fintie
+![Constrained Infinite](./RawFigs/Fig5_C10_d1.png)
+
+#### Constrained Finite
 
 Consider a total amount of space where it is possible for Selection region to be placed, of width $D$. The proportion of the region which can be Selection Region is defined by $\beta$. The Selection regions are subdivided into $N$ discrete regions of width $L=D\beta/N$, separated by Refuge regions of width $\delta = D(1-\beta)/(N-1)$ . For each N value, we calculate the change in Resistant pest number. At the same time, we approximate the domain with:
 
@@ -136,7 +150,6 @@ Consider a total amount of space where it is possible for Selection region to be
 
 * $1$ 'single' region of length $D$: this is accurate when the Selection regions are so close together that the contribution of the Refuge regions between them are negligible.
 
+![Constrained Finite](./RawFigs/Fig6_D100_B0.5.png)
 
 ## Reproducing figures
-~                                                                                                                                                             
-~                              
