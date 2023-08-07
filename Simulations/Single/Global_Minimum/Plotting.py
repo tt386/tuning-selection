@@ -299,14 +299,14 @@ plt.xticks([-2,-1,0,1,2])
 
 ax.set_xticks([-2,-1,0,1,2])
 ax.set_xticklabels(
-    ['$-2$',r'$-1$',r'$0$',r'$1$',r'$2$'])
+    ['$10^{-2}$',r'$10^{-1}$',r'$10^0$',r'$10^1$',r'$10^2$'])
 
 ax.set_yticks([-4,-3,-2,-1,0])
 ax.set_yticklabels(
-    ['$-4$',r'$-3$',r'$-2$',r'$-1$',r'$0$'])
+    ['$10^{-4}$',r'$10^{-3}$',r'$10^{-2}$',r'$10^{-1}$',r'$10^0$'])
 
-plt.xticks(fontsize=50,fontname = "Arial")
-plt.yticks(fontsize=50,fontname = "Arial")
+plt.xticks(fontsize=30,fontname = "Arial")
+plt.yticks(fontsize=30,fontname = "Arial")
 
 plt.savefig(str(args.directory) + "/dR.png",bbox_inches='tight')
 plt.savefig(str(args.directory) + "/dR.eps",bbox_inches='tight')

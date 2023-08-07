@@ -200,8 +200,9 @@ for i in dirlist:
     
     RList = Phi* np.ones(len(PAPDist))
 
+    cm = 1/2.54 
 
-    fig,ax = plt.subplots()
+    fig,ax = plt.subplots()#figsize = (7.87*cm,4.56*cm))
     Setup(plt,ax,xlist,InitDist,RList,0)
     plt.savefig(str(i) + "/1_Init.png",bbox_inches='tight')
     plt.close()
