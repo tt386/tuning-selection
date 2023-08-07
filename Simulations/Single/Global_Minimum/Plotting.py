@@ -1,6 +1,8 @@
 import matplotlib as mpl
 mpl.use('Agg')
 from matplotlib import pyplot as plt
+import matplotlib.patches as patches
+
 
 plt.rcParams['text.usetex'] = True
 mpl.rcParams.update(mpl.rcParamsDefault)
@@ -124,77 +126,108 @@ for i in dirlist:
         plt.savefig(str(i) + "/" + str(name) + ".png")
         plt.close()
 
-
+    """
     plt.figure()
     plt.plot(xlist,PAPDist)
     plt.plot(xlist,EndDist)
     plt.xlim(-L*5,L*6)
     plt.savefig(str(i) + "/" + "PAPandEnd.png")
     plt.close()
-
     """
-    # Multiple
-    Plot(xlist,PAPSNum,C+N*d,1.1,"Multiple_PAP")
-    Plot(xlist,ENDSNum,C+N*d,1.1,"Multiple_END")
-    Plot(xlist,Phi/(Phi+ENDSNum),C+N*d,max(Phi/(Phi+ENDSNum)),"Multiple_dR")
+    xlow = -1.5 * L
+    xupp = 2.5 *L
+
+    yupp = 10**0.5
+    ylow = Phi**2
+
+    xticks = []
+    for x in np.arange(int(xlow),int(xupp)+1):
+        if x%10 == 0:
+            xticks.append(x)
+
+    def AddRects(ax,ylow):
+        #Left Rect
+        # Create a Rectangle patch
+        rect = patches.Rectangle((xlow, np.log10(ylow)), abs(xlow), np.log10(10), linewidth=3, edgecolor='k', facecolor='white',zorder=1)
+        # Add the patch to the Axes
+        ax.add_patch(rect)
+
+        #Right Rect
+        #Left Rect
+        # Create a Rectangle patch
+        rect = patches.Rectangle((L, np.log10(ylow)), abs(xlow), np.log10(10), linewidth=3, edgecolor='k', facecolor='white',zorder=1)
+        # Add the patch to the Axes
+        ax.add_patch(rect)
+
+        #Middle Ret
+        # Create a Rectangle patch
+        rect = patches.Rectangle((0, np.log10(ylow)), L, np.log10(10), linewidth=1, edgecolor='k', facecolor='#808080',zorder=1)
+        # Add the patch to the Axes
+        ax.add_patch(rect)
+
+    def Setup(plt,ax,xlist,S,R,axisbool):
+        ylow = Phi**2
+
+
+        plt.plot(xlist,np.log10(S),linewidth=10,color='blue',zorder=0)
+        plt.plot(xlist,np.log10(R),linewidth=10,color='orange',zorder=0)
+
+        plt.xlim(xlow,xupp)
+
+
+        if axisbool:
+            plt.yticks(fontsize=50)
+
+            ax.set_yticks([0,-2,-4,-6])
+            ax.set_yticklabels(
+                [r'$0$',r'$-2$',r'$-4$',r'$-6$'])
+
+            ylow = Phi/10
+
+        else:
+            ax.axes.yaxis.set_visible(False)
+
+        plt.ylim(np.log10(ylow),np.log10(yupp))
+
+        AddRects(ax,ylow)
+
+        ax.axes.xaxis.set_visible(False)
+        plt.tight_layout()
+
+
+    InitDist = (1-Phi)* np.ones(len(PAPDist))
+    InitDist[abs(xlist-L/2)<L/2] = 0
     
-    # Isolated
-    Plot(xlist,I_PAPSNum,C+N*d,1.1,"Isolated_PAP")
-    Plot(xlist,I_ENDSNum,C+N*d,1.1,"Isolated_END")
-    Plot(xlist,Phi/(Phi+I_ENDSNum),C+N*d,max(Phi/(Phi+I_ENDSNum)),"Isolated_dR")
+    RList = Phi* np.ones(len(PAPDist))
 
-    # Tot Isolated
-    Plot(xlist,I_TOT_PAPSNum,C+N*d,1.1,"IsolatedTOT_PAP")
-    Plot(xlist,I_TOT_ENDSNum,C+N*d,1.1,"IsolatedTOT_END")
-    Plot(xlist,Phi/(Phi+I_TOT_ENDSNum),C+N*d,max(Phi/(Phi+I_TOT_ENDSNum)),"IsolatedTOT_dR")
 
-    # Periodic
-    Plot(P_xlist,P_PAPSNum,L+d,1.1,"Periodic_PAP")
-    Plot(P_xlist,P_ENDSNum,L+d,1.1,"Periodic_END")
-    Plot(P_xlist,Phi/(Phi+P_ENDSNum),L+d,max(Phi/(Phi+P_ENDSNum)),"Periodic_dR")
-    """
-    """
-
-    plt.figure()
-    plt.plot(xlist,PAPSNum)
-
-    plt.xlim(0,C+N*d)
-
-    plt.xlabel("Space")
-    plt.ylabel("Number")
-    plt.title("PAP Dist")
-    plt.savefig(str(i) + "/PAP.png")
+    fig,ax = plt.subplots()
+    Setup(plt,ax,xlist,InitDist,RList,0)
+    plt.savefig(str(i) + "/1_Init.png",bbox_inches='tight')
     plt.close()
 
-    #########
-
-    plt.figure()
-    plt.plot(xlist,ENDSNum)
-
-    plt.xlim(0,C+N*d)
-
-    plt.xlabel("Space")
-    plt.ylabel("Number")
-    plt.title("End Dist")
-    plt.savefig(str(i) + "/End.png")
+    fig,ax = plt.subplots()
+    PAPDist[PAPDist<ylow/10] = ylow/10
+    Setup(plt,ax,xlist,PAPDist,RList,0)
+    plt.savefig(str(i) + "/2_PAP.png",bbox_inches='tight')
     plt.close()
 
-    ##########
-
-    plt.figure()
-    plt.plot(xlist,Phi/(Phi+ENDSNum))
-
-    plt.xlim(0,C+N*d)
-
-    plt.xlabel("Space")
-    plt.ylabel("Number")
-    plt.title("Changing R")
-    plt.savefig(str(i) + "/DR.png")
+    fig,ax = plt.subplots()
+    Setup(plt,ax,xlist,EndDist,RList,0)
+    plt.savefig(str(i) + "/3_End.png",bbox_inches='tight')
     plt.close()
-    
-    ##########
-    """
-    
+
+    fig,ax = plt.subplots()
+    Setup(plt,ax,xlist,EndDist/(EndDist+RList),RList/(EndDist+RList),0)
+    plt.savefig(str(i) + "/4_PostBreed.png",bbox_inches='tight')
+    plt.close()
+
+
+    fig,ax = plt.subplots()
+    Setup(plt,ax,xlist,0*np.zeros(len(RList)),RList/(EndDist+RList),1)
+    plt.savefig(str(i) + "/5_PostBreedROnly.png",bbox_inches='tight')
+    plt.close()
+
 LList,dRList = zip(*sorted(zip(LList,dRList)))
 
 LList = np.asarray(LList)
@@ -266,11 +299,11 @@ plt.xticks([-2,-1,0,1,2])
 
 ax.set_xticks([-2,-1,0,1,2])
 ax.set_xticklabels(
-    ['$10^{-2}$',r'$10^{-1}$',r'$10^{0}$',r'$10^{1}$',r'$10^2$'])
+    ['$-2$',r'$-1$',r'$0$',r'$1$',r'$2$'])
 
 ax.set_yticks([-4,-3,-2,-1,0])
 ax.set_yticklabels(
-    ['$10^{-4}$',r'$10^{-3}$',r'$10^{-2}$',r'$10^{-1}$',r'$10^0$'])
+    ['$-4$',r'$-3$',r'$-2$',r'$-1$',r'$0$'])
 
 plt.xticks(fontsize=30,fontname = "Arial")
 plt.yticks(fontsize=30,fontname = "Arial")
@@ -326,7 +359,7 @@ ax.set_xticklabels(
 
 ax.set_yticks([-4,-2,0])
 ax.set_yticklabels(
-    ['$10^{-4}$',r'$10^{-2}$',r'$10^0$'])
+    ['$-4$',r'$-2$',r'$0$'])
 
 
 plt.xticks(fontsize=50,fontname = "Arial")
@@ -356,59 +389,3 @@ print("L at min R: ", 10**MindR)
 
 
 
-"""
-# Change in R with changing L
-plt.figure()
-plt.semilogy(C/NList,dRList,'-ko', label = 'Multiple')
-plt.semilogy(C/NList,I_dRList*NList,'-bx', label = 'Isolated',alpha=0.5)
-plt.semilogy(C/NList,I_TOT_dRList,'-r+',label = 'Total Isolated',alpha=0.5)
-plt.semilogy(C/NList,P_dRList*NList, '-gD', label = 'Periodic',alpha=0.5)
-
-plt.legend(loc = 'upper right')
-
-plt.xlabel("Length of sub-patches")
-plt.ylabel("Change in R")
-plt.savefig(str(args.directory) + "/dR_L.png")
-plt.close()
-"""
-"""
-#Gradient
-GradientLogLList = []
-GradientLogdRList = []
-
-LogLList = np.log10(LList)
-LogdRList= np.log10(dRList/LList)
-
-dLogL = LogLList[1]-LogLList[0]
-
-for i in range(1,len(LList)):
-    GradientLogLList.append(LogLList[i]-dLogL/2)
-    GradientLogdRList.append((LogdRList[i]-LogdRList[i-1])/dLogL)
-
-plt.figure()
-plt.plot(GradientLogLList,GradientLogdRList)
-plt.savefig(str(args.directory) + "/dR_Grad.png",bbox_inches='tight')
-plt.close()
-
-
-
-#Curvature
-CurvLogLList = []
-CurvLogdRList = []
-
-
-for i in range(1,len(GradientLogLList)):
-    CurvLogLList.append(GradientLogLList[i]-dLogL/2)
-    CurvLogdRList.append((GradientLogdRList[i]-GradientLogdRList[i-1])/dLogL)
-
-plt.figure()
-plt.plot(CurvLogLList,CurvLogdRList)
-plt.savefig(str(args.directory) + "/dR_Grad.png",bbox_inches='tight')
-plt.close()
-
-
-
-
-
-
-"""
