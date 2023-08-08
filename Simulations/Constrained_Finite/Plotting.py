@@ -322,8 +322,8 @@ ax.set_yticks([-4,-2,0,2,4])
 ax.set_yticklabels(
     ['$-4$',r'$-2$',r'$0$',r'$2$',r'$4$'])
 
-plt.xticks(fontsize=50,fontname = "Arial")
-plt.yticks(fontsize=50,fontname = "Arial")
+plt.xticks(fontsize=30,fontname = "Arial")
+plt.yticks(fontsize=30,fontname = "Arial")
 
 plt.savefig(str(args.directory) + "/dR.png",bbox_inches='tight')
 plt.savefig(str(args.directory) + "/dR.eps",bbox_inches='tight')
