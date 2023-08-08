@@ -37,6 +37,7 @@ from argparse import ArgumentParser
 
 parser = ArgumentParser(description='Plotting')
 parser.add_argument('-d','--directory',help='The directory of the data')
+parser.add_argument('-a','--makeallfigs',type=int)
 args = parser.parse_args()
 
 ###############################
@@ -149,33 +150,34 @@ for i in dirlist:
     else:
         d = 1
 
-    plt.figure()
-    plt.plot(M_xlist,M_PAPDist)
-    plt.plot(M_xlist,M_EndDist)
-    plt.xlim(-C-(N-1)*d,2*C+2*(N-1)*d)
-    plt.savefig(str(i) + "/" + "M_PAPandEnd.png")
-    plt.close()
+    if args.makeallfigs:
+        plt.figure()
+        plt.plot(M_xlist,M_PAPDist)
+        plt.plot(M_xlist,M_EndDist)
+        plt.xlim(-C-(N-1)*d,2*C+2*(N-1)*d)
+        plt.savefig(str(i) + "/" + "M_PAPandEnd.png")
+        plt.close()
 
-    plt.figure()
-    plt.plot(I_xlist,I_PAPDist)
-    plt.plot(I_xlist,I_EndDist)
-    plt.xlim(-C/N*5,C/N*6)
-    plt.savefig(str(i) + "/" + "I_PAPandEnd.png")
-    plt.close()
+        plt.figure()
+        plt.plot(I_xlist,I_PAPDist)
+        plt.plot(I_xlist,I_EndDist)
+        plt.xlim(-C/N*5,C/N*6)
+        plt.savefig(str(i) + "/" + "I_PAPandEnd.png")
+        plt.close()
 
-    plt.figure()
-    plt.plot(I_TOT_xlist,I_TOT_PAPDist)
-    plt.plot(I_TOT_xlist,I_TOT_EndDist)
-    plt.xlim(-C*5,C*6)
-    plt.savefig(str(i) + "/" + "I_TOT_PAPandEnd.png")
-    plt.close()
+        plt.figure()
+        plt.plot(I_TOT_xlist,I_TOT_PAPDist)
+        plt.plot(I_TOT_xlist,I_TOT_EndDist)
+        plt.xlim(-C*5,C*6)
+        plt.savefig(str(i) + "/" + "I_TOT_PAPandEnd.png")
+        plt.close()
 
-    plt.figure()
-    plt.plot(P_xlist,P_PAPDist)
-    plt.plot(P_xlist,P_EndDist)
-    plt.xlim(0,K)
-    plt.savefig(str(i) + "/" + "P_PAPandEnd.png")
-    plt.close()
+        plt.figure()
+        plt.plot(P_xlist,P_PAPDist)
+        plt.plot(P_xlist,P_EndDist)
+        plt.xlim(0,K)
+        plt.savefig(str(i) + "/" + "P_PAPandEnd.png")
+        plt.close()
 
     """
     # Multiple
@@ -310,18 +312,18 @@ plt.plot(NList,np.log10(I_TOT_dRList),'--r',linewidth=5)
 plt.plot(NList,np.log10(P_dRList),'--g',linewidth=5)
 
 #Formatting
-plt.xticks([0,max(NList)])
+plt.xticks([0,max(NList-NList%10)])
 
-ax.set_xticks([0,max(NList)])
+ax.set_xticks([0,max(NList-NList%10)])
 ax.set_xticklabels(
-    [r'$0$',r'$%d$'%(max(NList))])
+    [r'$0$',r'$%d$'%(max(NList-NList%10))])
 
 ax.set_yticks([-4,-2,0,2,4])
 ax.set_yticklabels(
-    ['$10^{-4}$',r'$10^{-2}$',r'$10^{0}$',r'$10^{2}$',r'$10^4$'])
+    ['$-4$',r'$-2$',r'$0$',r'$2$',r'$4$'])
 
-plt.xticks(fontsize=30,fontname = "Arial")
-plt.yticks(fontsize=30,fontname = "Arial")
+plt.xticks(fontsize=50,fontname = "Arial")
+plt.yticks(fontsize=50,fontname = "Arial")
 
 plt.savefig(str(args.directory) + "/dR.png",bbox_inches='tight')
 plt.savefig(str(args.directory) + "/dR.eps",bbox_inches='tight')
