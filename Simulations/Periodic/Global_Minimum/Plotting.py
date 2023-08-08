@@ -278,8 +278,8 @@ ax = fig.add_subplot(111)
 plt.plot(np.log10(LList),np.log10(dRList/LList), '-k',linewidth=5)
 #Create the stretched version
 
-plt.xticks(fontsize=30,fontname = "Arial")
-plt.yticks(fontsize=30,fontname = "Arial")
+plt.xticks(fontsize=50,fontname = "Arial")
+plt.yticks(fontsize=50,fontname = "Arial")
 
 """
 #Highlight the linearity
