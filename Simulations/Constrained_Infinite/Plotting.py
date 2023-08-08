@@ -37,6 +37,7 @@ from argparse import ArgumentParser
 
 parser = ArgumentParser(description='Plotting')
 parser.add_argument('-d','--directory',help='The directory of the data')
+parser.add_argument('-a','--makeallfigs',type=int)
 args = parser.parse_args()
 
 ###############################
@@ -143,34 +144,35 @@ for i in dirlist:
         plt.savefig(str(i) + "/" + str(name) + ".png")
         plt.close()
 
+    if args.makeallfigs:
 
-    plt.figure()
-    plt.plot(M_xlist,M_PAPDist)
-    plt.plot(M_xlist,M_EndDist)
-    plt.xlim(-C-(N-1)*d,2*C+2*(N-1)*d)
-    plt.savefig(str(i) + "/" + "M_PAPandEnd.png")
-    plt.close()
+        plt.figure()
+        plt.plot(M_xlist,M_PAPDist)
+        plt.plot(M_xlist,M_EndDist)
+        plt.xlim(-C-(N-1)*d,2*C+2*(N-1)*d)
+        plt.savefig(str(i) + "/" + "M_PAPandEnd.png")
+        plt.close()
 
-    plt.figure()
-    plt.plot(I_xlist,I_PAPDist)
-    plt.plot(I_xlist,I_EndDist)
-    plt.xlim(-C/N*5,C/N*6)
-    plt.savefig(str(i) + "/" + "I_PAPandEnd.png")
-    plt.close()
+        plt.figure()
+        plt.plot(I_xlist,I_PAPDist)
+        plt.plot(I_xlist,I_EndDist)
+        plt.xlim(-C/N*5,C/N*6)
+        plt.savefig(str(i) + "/" + "I_PAPandEnd.png")
+        plt.close()
 
-    plt.figure()
-    plt.plot(I_TOT_xlist,I_TOT_PAPDist)
-    plt.plot(I_TOT_xlist,I_TOT_EndDist)
-    plt.xlim(-C*5,C*6)
-    plt.savefig(str(i) + "/" + "I_TOT_PAPandEnd.png")
-    plt.close()
+        plt.figure()
+        plt.plot(I_TOT_xlist,I_TOT_PAPDist)
+        plt.plot(I_TOT_xlist,I_TOT_EndDist)
+        plt.xlim(-C*5,C*6)
+        plt.savefig(str(i) + "/" + "I_TOT_PAPandEnd.png")
+        plt.close()
 
-    plt.figure()
-    plt.plot(P_xlist,P_PAPDist)
-    plt.plot(P_xlist,P_EndDist)
-    plt.xlim(0,K)
-    plt.savefig(str(i) + "/" + "P_PAPandEnd.png")
-    plt.close()
+        plt.figure()
+        plt.plot(P_xlist,P_PAPDist)
+        plt.plot(P_xlist,P_EndDist)
+        plt.xlim(0,K)
+        plt.savefig(str(i) + "/" + "P_PAPandEnd.png")
+        plt.close()
 
     """
     # Multiple
@@ -313,7 +315,7 @@ ax.set_xticklabels(
 
 ax.set_yticks([-4,-2,0,2,4])
 ax.set_yticklabels(
-    ['$10^{-4}$',r'$10^{-2}$',r'$10^{0}$',r'$10^{2}$',r'$10^4$'])
+    ['$-4$',r'$-2$',r'$0$',r'$2$',r'$4$'])
 
 plt.xticks(fontsize=30,fontname = "Arial")
 plt.yticks(fontsize=30,fontname = "Arial")
