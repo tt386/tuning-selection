@@ -86,14 +86,14 @@ plt.plot(np.log10(wList),np.log10(MinGradTheory),'--g',linewidth=5)
 #Formatting
 ax.set_xticks([-1,0])
 ax.set_xticklabels(
-    [r'$10^{-1}$',r'$10^{0}$'])
+    [r'$-1$',r'$0$'])
 
 ax.set_yticks([-0.6,0,0.6])
 ax.set_yticklabels(
-    [r'$10^{-0.6}$',r'$10^{0}$',r'$10^{0.6}$'])
+    [r'$-0.6$',r'$0$',r'$0.6$'])
 
-plt.xticks(fontsize=30,fontname = "Arial")
-plt.yticks(fontsize=30,fontname = "Arial")
+plt.xticks(fontsize=50,fontname = "Arial")
+plt.yticks(fontsize=50,fontname = "Arial")
 
 plt.savefig(str(directory)+ "/LL.png",bbox_inches='tight')
 plt.close()
@@ -109,14 +109,14 @@ plt.plot(np.log10(1-wList),np.log10(MinCurvTheory),'--g',linewidth=5)
 #Formatting
 ax.set_xticks([-1,0])
 ax.set_xticklabels(
-    [r'$10^{-1}$',r'$10^{0}$'])
+    [r'$-1$',r'$0$'])
 
 ax.set_yticks([1,2])
 ax.set_yticklabels(
-    [r'$10^{1}$',r'$10^{2}$'])
+    [r'$1$',r'$2$'])
 
-plt.xticks(fontsize=30,fontname = "Arial")
-plt.yticks(fontsize=30,fontname = "Arial")
+plt.xticks(fontsize=50,fontname = "Arial")
+plt.yticks(fontsize=50,fontname = "Arial")
 
 plt.savefig(str(directory)+ "/LU.png",bbox_inches='tight')
 plt.close()

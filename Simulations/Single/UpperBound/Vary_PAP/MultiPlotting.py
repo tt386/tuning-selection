@@ -109,14 +109,14 @@ plt.plot(np.log10(1-PAPList),np.log10(MinCurvTheory),'--g',linewidth=5)
 #Formatting
 ax.set_xticks([-1,0])
 ax.set_xticklabels(
-    [r'$10^{-1}$',r'$10^{0}$'])
+    [r'$-1$',r'$0$'])
 
 ax.set_yticks([0.5,1])
 ax.set_yticklabels(
-    [r'$10^{0.5}$',r'$10^{1}$'])
+    [r'$0.5$',r'$1$'])
 
-plt.xticks(fontsize=30,fontname = "Arial")
-plt.yticks(fontsize=30,fontname = "Arial")
+plt.xticks(fontsize=50,fontname = "Arial")
+plt.yticks(fontsize=50,fontname = "Arial")
 
 plt.savefig(str(directory)+ "/LU.png",bbox_inches='tight')
 plt.close()
