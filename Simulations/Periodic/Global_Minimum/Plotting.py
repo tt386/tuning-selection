@@ -348,7 +348,7 @@ ax.set_xticklabels(
 
 ax.set_yticks([-2,0])
 ax.set_yticklabels(
-    [r'$10^{-2}$',r'$10^0$'])
+    [r'$-2$',r'$0$'])
 
 plt.xlim(0,2)
 
