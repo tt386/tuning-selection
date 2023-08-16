@@ -216,8 +216,10 @@ def Kernel(PAP,xlist):
     1D numpy array of floats:
         The Gaussian diffusion kernel
     """
-
-    return 1/np.sqrt(4*np.pi*(1-PAP)) * np.exp(-xlist**2/(4*(1-PAP)))
+    if PAP < 1:
+        return 1/np.sqrt(4*np.pi*(1-PAP)) * np.exp(-xlist**2/(4*(1-PAP)))
+    else:
+        return np.ones(len(xlist))
 
 def Kernel_Periodic(PAP,xlist,K):
     """
@@ -236,7 +238,10 @@ def Kernel_Periodic(PAP,xlist,K):
         The Gaussian diffusion kernel
     """
 
-    return 1/np.sqrt(4*np.pi*(1-PAP)) * np.exp(-(xlist-K/2)**2/(4*(1-PAP)))
+    if PAP < 1:
+        return 1/np.sqrt(4*np.pi*(1-PAP)) * np.exp(-(xlist-K/2)**2/(4*(1-PAP)))
+    else:
+        return np.ones(len(xlist))
 
 def EndDist_Single(PAPDist,Kernel,xlist,L,dx):
     """

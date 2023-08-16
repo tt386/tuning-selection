@@ -39,6 +39,7 @@ from argparse import ArgumentParser
 
 parser = ArgumentParser(description='Plotting')
 parser.add_argument('-d','--directory',help='The directory of the data')
+parser.add_argument("-a",'--plotall',type=int,help='Do you want all intermediate plots')
 args = parser.parse_args()
 
 ###############################
@@ -194,39 +195,39 @@ for i in dirlist:
         ax.axes.xaxis.set_visible(False)
         plt.tight_layout()
 
-
-    InitDist = (1-Phi)* np.ones(len(PAPDist))
-    InitDist[abs(xlist-L/2)<L/2] = 0
-    
-    RList = Phi* np.ones(len(PAPDist))
-
-
-    fig,ax = plt.subplots()
-    Setup(plt,ax,xlist,InitDist,RList,0)
-    plt.savefig(str(i) + "/1_Init.png",bbox_inches='tight')
-    plt.close()
-
-    fig,ax = plt.subplots()
-    PAPDist[PAPDist<ylow/10] = ylow/10
-    Setup(plt,ax,xlist,PAPDist,RList,0)
-    plt.savefig(str(i) + "/2_PAP.png",bbox_inches='tight')
-    plt.close()
-
-    fig,ax = plt.subplots()
-    Setup(plt,ax,xlist,EndDist,RList,0)
-    plt.savefig(str(i) + "/3_End.png",bbox_inches='tight')
-    plt.close()
-
-    fig,ax = plt.subplots()
-    Setup(plt,ax,xlist,EndDist/(EndDist+RList),RList/(EndDist+RList),0)
-    plt.savefig(str(i) + "/4_PostBreed.png",bbox_inches='tight')
-    plt.close()
+    if args.plotall:
+        InitDist = (1-Phi)* np.ones(len(PAPDist))
+        InitDist[abs(xlist-L/2)<L/2] = 0
+        
+        RList = Phi* np.ones(len(PAPDist))
 
 
-    fig,ax = plt.subplots()
-    Setup(plt,ax,xlist,0*np.zeros(len(RList)),RList/(EndDist+RList),1)
-    plt.savefig(str(i) + "/5_PostBreedROnly.png",bbox_inches='tight')
-    plt.close()
+        fig,ax = plt.subplots()
+        Setup(plt,ax,xlist,InitDist,RList,0)
+        plt.savefig(str(i) + "/1_Init.png",bbox_inches='tight')
+        plt.close()
+
+        fig,ax = plt.subplots()
+        PAPDist[PAPDist<ylow/10] = ylow/10
+        Setup(plt,ax,xlist,PAPDist,RList,0)
+        plt.savefig(str(i) + "/2_PAP.png",bbox_inches='tight')
+        plt.close()
+
+        fig,ax = plt.subplots()
+        Setup(plt,ax,xlist,EndDist,RList,0)
+        plt.savefig(str(i) + "/3_End.png",bbox_inches='tight')
+        plt.close()
+
+        fig,ax = plt.subplots()
+        Setup(plt,ax,xlist,EndDist/(EndDist+RList),RList/(EndDist+RList),0)
+        plt.savefig(str(i) + "/4_PostBreed.png",bbox_inches='tight')
+        plt.close()
+
+
+        fig,ax = plt.subplots()
+        Setup(plt,ax,xlist,0*np.zeros(len(RList)),RList/(EndDist+RList),1)
+        plt.savefig(str(i) + "/5_PostBreedROnly.png",bbox_inches='tight')
+        plt.close()
 
 LList,dRList = zip(*sorted(zip(LList,dRList)))
 
@@ -319,22 +320,39 @@ lowerR = np.log10(dRList/LList)[0] + 0.5
 
 upperL = lowerL + 0.5
 upperR = -upperL + (lowerL + lowerR)
-plt.plot([lowerL,upperL],[lowerR,upperR],'g',linewidth='5',zorder=1)
+plt.plot([lowerL,upperL],[lowerR,upperR],'--g',linewidth='5',zorder=1)
 
 plt.text(lowerL+0.25,lowerR,r"$L^{-1}$",fontsize=50,fontname="Arial")
 
 #Highlight sub-figures
-index = np.argmin(CurvLogdRList)-10
-plt.scatter([np.log10(LList[index])],
-        [np.log10(dRList/LList)[index]],color='Blue',s=750)
 
-index = np.argmin(CurvLogdRList)+10
-plt.scatter([np.log10(LList[index])],
-        [np.log10(dRList/LList)[index]],color='red',s=750)
+#Find the element closest to value:
+def index_closest_value(array, target):
+    absolute_diff = np.abs(array - target)
+    index = np.argmin(absolute_diff)
+    return index
 
-index = np.argmin(CurvLogdRList)+20
+target = 10
+index = index_closest_value(LList,10)
+#index = np.argmin(CurvLogdRList)-10
 plt.scatter([np.log10(LList[index])],
-        [np.log10(dRList/LList)[index]],color='yellow',s=750)
+        [np.log10(dRList/LList)[index]],color='Blue',s=750,
+        edgecolors='black')
+
+
+target = 20
+index = index_closest_value(LList,target)
+#index = np.argmin(CurvLogdRList)+10
+plt.scatter([np.log10(LList[index])],
+        [np.log10(dRList/LList)[index]],color='red',s=750,marker="D",
+        edgecolors='black')
+
+target = 40
+index = index_closest_value(LList,target)
+#index = np.argmin(CurvLogdRList)+20
+plt.scatter([np.log10(LList[index])],
+        [np.log10(dRList/LList)[index]],color='cyan',s=750,marker="s",
+        edgecolors='black')
 
 
 
