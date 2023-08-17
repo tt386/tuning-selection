@@ -301,10 +301,12 @@ MinCurvature = CurvLogLList[np.argmin(CurvLogdRList)]
 # Change in R with changing L
 fig = plt.figure()
 ax = fig.add_subplot(111)
+
+
 plt.plot(NList,np.log10(dRList), '-k',linewidth=5)
-plt.plot(NList,np.log10(I_dRList),'--b',linewidth=5)
-plt.plot(NList,np.log10(I_TOT_dRList),'--r',linewidth=5)
-plt.plot(NList,np.log10(P_dRList),'--g',linewidth=5)
+plt.plot(NList,np.log10(I_dRList),'--c',linewidth=5)
+plt.plot(NList,np.log10(I_TOT_dRList),linestyle='dashdot',color='orange',linewidth=5)
+plt.plot(NList,np.log10(P_dRList),':r',linewidth=5)
 
 #Formatting
 plt.xticks([0,max(NList)])
