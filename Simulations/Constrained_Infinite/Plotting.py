@@ -316,9 +316,9 @@ plt.plot(NList,np.log10(P_dRList),':r',linewidth=5)
 #Formatting
 plt.xticks([0,max(NList)])
 
-ax.set_xticks([0,max(NList)])
+ax.set_xticks([0,int(max(NList)/2),max(NList)])
 ax.set_xticklabels(
-    [r'$0$',r'$%d$'%(max(NList))])
+    [r'$0$',r'$%d$'%(int(max(NList)/2)),r'$%d$'%(max(NList))])
 
 ax.set_yticks([-4,-2,0,2,4])
 ax.set_yticklabels(

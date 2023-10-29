@@ -324,11 +324,11 @@ plt.plot(NList,np.log10(I_TOT_dRList),'--r',linewidth=5)
 plt.plot(NList,np.log10(P_dRList),'--g',linewidth=5)
 """
 #Formatting
-plt.xticks([0,max(NList-NList%10)])
+plt.xticks([0,int(max(NList-NList%10)/2),max(NList-NList%10)])
 
-ax.set_xticks([0,max(NList-NList%10)])
+ax.set_xticks([0,int(max(NList-NList%10)/2),max(NList-NList%10)])
 ax.set_xticklabels(
-    [r'$0$',r'$%d$'%(max(NList-NList%10))])
+    [r'$0$',r'$%d$'%(int(max(NList-NList%10)/2)),r'$%d$'%(max(NList-NList%10))])
 
 ax.set_yticks([-4,-2,0,2,4])
 ax.set_yticklabels(
