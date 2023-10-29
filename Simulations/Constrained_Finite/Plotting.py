@@ -301,10 +301,14 @@ MinCurvature = CurvLogLList[np.argmin(CurvLogdRList)]
 
 
 
+# Set the figure size in millimeters
+fig_width_mm = 125
+fig_height_mm = 80
+fig_size = (fig_width_mm / 25.4, fig_height_mm / 25.4)  # Convert mm to inches (25.4 mm in an inch)
 
 #########################################################################
 # Change in R with changing L
-fig = plt.figure()
+fig = plt.figure(figsize=fig_size)
 ax = fig.add_subplot(111)
 
 plt.plot(NList,np.log10(dRList), '-k',linewidth=5)
@@ -333,8 +337,12 @@ ax.set_yticklabels(
 plt.xticks(fontsize=30,fontname = "Arial")
 plt.yticks(fontsize=30,fontname = "Arial")
 
-plt.savefig(str(args.directory) + "/dR.png",bbox_inches='tight')
-plt.savefig(str(args.directory) + "/dR.eps",bbox_inches='tight')
+ax.xaxis.set_tick_params(width=2)
+ax.yaxis.set_tick_params(width=2)
+
+
+plt.savefig(str(args.directory) + "/dR.png",bbox_inches='tight',dpi=300)
+plt.savefig(str(args.directory) + "/dR.eps",bbox_inches='tight',dpi=300)
 
 #Create the stretched version
 """

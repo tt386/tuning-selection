@@ -273,13 +273,30 @@ plt.savefig(str(args.directory) + "/dR.png",bbox_inches='tight')
 plt.savefig(str(args.directory) + "/dR.eps",bbox_inches='tight')
 plt.close()
 
-fig = plt.figure()
+
+
+# Set the figure size in millimeters
+fig_width_mm = 400
+fig_height_mm = 90
+
+
+fig = plt.figure(2)
 ax = fig.add_subplot(111)
 plt.plot(np.log10(LList),np.log10(dRList/LList), '-k',linewidth=5)
 #Create the stretched version
 
-plt.xticks(fontsize=50,fontname = "Arial")
-plt.yticks(fontsize=50,fontname = "Arial")
+plt.xticks(fontsize=30,fontname = "Arial")
+plt.yticks(fontsize=30,fontname = "Arial")
+
+
+
+plt.figure(2).set_size_inches(fig_width_mm/25.4,fig_height_mm/25.4,forward=True)
+
+
+ax.xaxis.set_tick_params(width=2)
+ax.yaxis.set_tick_params(width=2)
+
+
 
 """
 #Highlight the linearity
@@ -338,7 +355,7 @@ plt.plot([CurvLogLList[index],CurvLogLList[index]],
 
 MinCurvature = CurvLogLList[index]
 
-plt.text(1.5,-1,r"$\omega=%0.1f$"%(w),fontsize=50,fontname="Arial")
+plt.text(1.5,-1,r"$\omega=%0.1f$"%(w),fontsize=30,fontname="Arial")
 
 
 #Formatting
@@ -352,13 +369,13 @@ ax.set_yticklabels(
 
 plt.xlim(0,2)
 
-fig.set_figwidth(15)
+#fig.set_figwidth(15)
 ax.tick_params(axis='x', which='major', pad=15)
-fig.tight_layout()
+#fig.tight_layout()
 
 #Saving
-plt.savefig(str(args.directory) + '/dR_Detail.png',bbox_inches='tight')
-plt.savefig(str(args.directory) + '/dR_Detail.eps',bbox_inches='tight')
+plt.savefig(str(args.directory) + '/dR_Detail.png',bbox_inches='tight',dpi=300)
+plt.savefig(str(args.directory) + '/dR_Detail.eps',bbox_inches='tight',dpi=300)
 
 
 plt.close()

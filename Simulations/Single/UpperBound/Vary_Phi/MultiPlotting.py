@@ -101,7 +101,13 @@ plt.close()
 
 
 MinCurvTheory = 4 * np.sqrt(1-PAP) * special.erfinv(1-PhiList/(1-PhiList))
-fig = plt.figure()
+
+# Set the figure size in millimeters
+fig_width_mm = 150
+fig_height_mm = 100
+fig_size = (fig_width_mm / 25.4, fig_height_mm / 25.4)  # Convert mm to inches (25.4 mm in an inch)
+
+fig = plt.figure(figsize=fig_size)
 ax = fig.add_subplot(111)
 plt.scatter(np.log10(PhiList),MinCurvList,c='k',s=200)
 plt.plot(np.log10(PhiList),np.log10(MinCurvTheory),'--g',linewidth=5)
@@ -118,8 +124,8 @@ ax.set_yticks([0.5,1])
 ax.set_yticklabels(
     [r'$0.5$',r'$1$'])
 
-plt.xticks(fontsize=50,fontname = "Arial")
-plt.yticks(fontsize=50,fontname = "Arial")
+plt.xticks(fontsize=30,fontname = "Arial")
+plt.yticks(fontsize=30,fontname = "Arial")
 
-plt.savefig(str(directory)+ "/LU.png",bbox_inches='tight')
+plt.savefig(str(directory)+ "/LU.png",bbox_inches='tight',dpi=300)
 plt.close()

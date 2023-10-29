@@ -78,7 +78,13 @@ MinCurvList = np.asarray(MinCurvList)
 
 
 MinGradTheory = np.sqrt(PAP)*np.pi/(wList * np.sqrt(np.log(8*wList*(1-Phi)/(Phi*np.pi**2))))
-fig = plt.figure()
+
+
+# Set the figure size in millimeters
+fig_width_mm = 150
+fig_height_mm = 100
+
+fig = plt.figure(1)
 ax = fig.add_subplot(111)
 plt.scatter(np.log10(wList),MinGradList,c='k',s=200)
 plt.plot(np.log10(wList),np.log10(MinGradTheory),'--g',linewidth=5)
@@ -92,16 +98,23 @@ ax.set_yticks([-0.6,0,0.6])
 ax.set_yticklabels(
     [r'$-0.6$',r'$0$',r'$0.6$'])
 
-plt.xticks(fontsize=50,fontname = "Arial")
-plt.yticks(fontsize=50,fontname = "Arial")
+plt.xticks(fontsize=30,fontname = "Arial")
+plt.yticks(fontsize=30,fontname = "Arial")
 
-plt.savefig(str(directory)+ "/LL.png",bbox_inches='tight')
+
+plt.figure(1).set_size_inches(fig_width_mm/25.4,fig_height_mm/25.4,forward=True)
+
+
+ax.xaxis.set_tick_params(width=2)
+ax.yaxis.set_tick_params(width=2)
+
+plt.savefig(str(directory)+ "/LL.png",bbox_inches='tight',dpi=300)
 plt.close()
 
 
 
 MinCurvTheory = 4 * np.sqrt(1-PAP)/(1-wList) * special.erfinv(1-Phi/(1-Phi))
-fig = plt.figure()
+fig = plt.figure(2)
 ax = fig.add_subplot(111)
 plt.scatter(np.log10(1-wList),MinCurvList,c='k',s=200)
 plt.plot(np.log10(1-wList),np.log10(MinCurvTheory),'--g',linewidth=5)
@@ -115,8 +128,15 @@ ax.set_yticks([1,2])
 ax.set_yticklabels(
     [r'$1$',r'$2$'])
 
-plt.xticks(fontsize=50,fontname = "Arial")
-plt.yticks(fontsize=50,fontname = "Arial")
+plt.figure(2).set_size_inches(fig_width_mm/25.4,fig_height_mm/25.4,forward=True)
 
-plt.savefig(str(directory)+ "/LU.png",bbox_inches='tight')
+
+ax.xaxis.set_tick_params(width=2)
+ax.yaxis.set_tick_params(width=2)
+
+
+plt.xticks(fontsize=30,fontname = "Arial")
+plt.yticks(fontsize=30,fontname = "Arial")
+
+plt.savefig(str(directory)+ "/LU.png",bbox_inches='tight',dpi=300)
 plt.close()

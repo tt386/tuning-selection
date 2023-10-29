@@ -288,12 +288,58 @@ MinCurvature = CurvLogLList[np.argmin(CurvLogdRList)]
 
 
 
-
+# Set the figure size in millimeters
+fig_width_mm = 150
+fig_height_mm = 100
+fig_size = (fig_width_mm / 25.4, fig_height_mm / 25.4)  # Convert mm to inches (25.4 mm in an inch)
 #########################################################################
 # Change in R with changing L
-fig = plt.figure()
+fig = plt.figure(1)
 ax = fig.add_subplot(111)
 plt.plot(np.log10(LList),np.log10(dRList/LList), '-k',linewidth=5)
+
+#Formatting
+plt.xticks([-2,-1,0,1,2])
+
+ax.set_xticks([-2,-1,0,1,2])
+ax.set_xticklabels(
+    ['$10^{-2}$',r'$10^{-1}$',r'$10^0$',r'$10^1$',r'$10^2$'])
+
+ax.set_yticks([-4,-3,-2,-1,0])
+ax.set_yticklabels(
+    ['$10^{-4}$',r'$10^{-3}$',r'$10^{-2}$',r'$10^{-1}$',r'$10^0$'])
+
+
+plt.figure(1).set_size_inches(fig_width_mm/25.4,fig_height_mm/25.4,forward=True)
+
+
+ax.xaxis.set_tick_params(width=2)
+ax.yaxis.set_tick_params(width=2)
+
+plt.xticks(fontsize=30,fontname = "Arial")
+plt.yticks(fontsize=30,fontname = "Arial")
+
+plt.savefig(str(args.directory) + "/dR.png",bbox_inches='tight',dpi=300)
+plt.savefig(str(args.directory) + "/dR.eps",bbox_inches='tight',dpi=300)
+plt.close()
+
+
+#Create the stretched version
+
+# Set the figure size in millimeters
+fig_width_mm = 400
+fig_height_mm = 90
+
+fig = plt.figure(2)
+ax = fig.add_subplot(111)
+plt.plot(np.log10(LList),np.log10(dRList/LList), '-k',linewidth=5)
+
+plt.figure(2).set_size_inches(fig_width_mm/25.4,fig_height_mm/25.4,forward=True)
+
+
+ax.xaxis.set_tick_params(width=2)
+ax.yaxis.set_tick_params(width=2)
+
 
 #Formatting
 plt.xticks([-2,-1,0,1,2])
@@ -309,10 +355,7 @@ ax.set_yticklabels(
 plt.xticks(fontsize=30,fontname = "Arial")
 plt.yticks(fontsize=30,fontname = "Arial")
 
-plt.savefig(str(args.directory) + "/dR.png",bbox_inches='tight')
-plt.savefig(str(args.directory) + "/dR.eps",bbox_inches='tight')
 
-#Create the stretched version
 
 #Highlight the linearity
 lowerL = np.log10(LList)[0]
@@ -322,7 +365,7 @@ upperL = lowerL + 0.5
 upperR = -upperL + (lowerL + lowerR)
 plt.plot([lowerL,upperL],[lowerR,upperR],'--g',linewidth='5',zorder=1)
 
-plt.text(lowerL+0.25,lowerR,r"$L^{-1}$",fontsize=50,fontname="Arial")
+plt.text(lowerL+0.25,lowerR,r"$L^{-1}$",fontsize=30,fontname="Arial")
 
 #Highlight sub-figures
 
@@ -380,16 +423,16 @@ ax.set_yticklabels(
     ['$-4$',r'$-2$',r'$0$'])
 
 
-plt.xticks(fontsize=50,fontname = "Arial")
-plt.yticks(fontsize=50,fontname = "Arial")
+plt.xticks(fontsize=30,fontname = "Arial")
+plt.yticks(fontsize=30,fontname = "Arial")
 
-fig.set_figwidth(20)
+#fig.set_figwidth(20)
 ax.tick_params(axis='x', which='major', pad=15)
-fig.tight_layout()
+#fig.tight_layout()
 
 #Saving
-plt.savefig(str(args.directory) + '/dR_Stretch.png')
-plt.savefig(str(args.directory) + '/dR_Stretch.eps')
+plt.savefig(str(args.directory) + '/dR_Stretch.png',bbox_inches='tight',dpi=300)
+plt.savefig(str(args.directory) + '/dR_Stretch.eps',bbox_inches='tight',dpi=300)
 
 
 

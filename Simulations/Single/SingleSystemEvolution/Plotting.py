@@ -176,7 +176,7 @@ for i in dirlist:
 
 
         if axisbool:
-            plt.yticks(fontsize=50)
+            plt.yticks(fontsize=30)
 
             ax.set_yticks([0,-2,-4,-6])
             ax.set_yticklabels(
@@ -195,6 +195,12 @@ for i in dirlist:
         plt.tight_layout()
 
 
+
+    # Set the figure size in millimeters
+    fig_width_mm = 125
+    fig_height_mm = 80
+    fig_size = (fig_width_mm / 25.4, fig_height_mm / 25.4)  # Convert mm to inches (25.4 mm in an inch)
+
     InitDist = (1-Phi)* np.ones(len(PAPDist))
     InitDist[abs(xlist-L/2)<L/2] = 0
     
@@ -202,31 +208,31 @@ for i in dirlist:
 
     cm = 1/2.54 
 
-    fig,ax = plt.subplots()#figsize = (7.87*cm,4.56*cm))
+    fig,ax = plt.subplots(figsize = fig_size)
     Setup(plt,ax,xlist,InitDist,RList,0)
-    plt.savefig(str(i) + "/1_Init.png",bbox_inches='tight')
+    plt.savefig(str(i) + "/1_Init.png",bbox_inches='tight',dpi=300)
     plt.close()
 
-    fig,ax = plt.subplots()
+    fig,ax = plt.subplots(figsize = fig_size)
     PAPDist[PAPDist<ylow/10] = ylow/10
     Setup(plt,ax,xlist,PAPDist,RList,0)
-    plt.savefig(str(i) + "/2_PAP.png",bbox_inches='tight')
+    plt.savefig(str(i) + "/2_PAP.png",bbox_inches='tight',dpi=300)
     plt.close()
 
-    fig,ax = plt.subplots()
+    fig,ax = plt.subplots(figsize = fig_size)
     Setup(plt,ax,xlist,EndDist,RList,0)
-    plt.savefig(str(i) + "/3_End.png",bbox_inches='tight')
+    plt.savefig(str(i) + "/3_End.png",bbox_inches='tight',dpi=300)
     plt.close()
 
-    fig,ax = plt.subplots()
+    fig,ax = plt.subplots(figsize = fig_size)
     Setup(plt,ax,xlist,EndDist/(EndDist+RList),RList/(EndDist+RList),0)
-    plt.savefig(str(i) + "/4_PostBreed.png",bbox_inches='tight')
+    plt.savefig(str(i) + "/4_PostBreed.png",bbox_inches='tight',dpi=300)
     plt.close()
 
 
-    fig,ax = plt.subplots()
+    fig,ax = plt.subplots(figsize = fig_size)
     Setup(plt,ax,xlist,0*np.zeros(len(RList)),RList/(EndDist+RList),1)
-    plt.savefig(str(i) + "/5_PostBreedROnly.png",bbox_inches='tight')
+    plt.savefig(str(i) + "/5_PostBreedROnly.png",bbox_inches='tight',dpi=300)
     plt.close()
 
 LList,dRList = zip(*sorted(zip(LList,dRList)))

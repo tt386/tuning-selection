@@ -256,10 +256,12 @@ def Single_w_Plot(directory):
 
 
 
-
+    # Set the figure size in millimeters
+    fig_width_mm = 150
+    fig_height_mm = 100
     #########################################################################
     # Change in R with changing L
-    fig = plt.figure()
+    fig = plt.figure(1)
     ax = fig.add_subplot(111)
     plt.plot(np.log10(LList),np.log10(dRList/LList), '-k',linewidth=5)
 
@@ -272,11 +274,17 @@ def Single_w_Plot(directory):
     ax.set_yticklabels(
         [r'$10^{-2}$',r'$10^{-1}$',r'$10^0$'])
 
+
+    plt.figure(1).set_size_inches(fig_width_mm/25.4,fig_height_mm/25.4,forward=True)
+
+    ax.xaxis.set_tick_params(width=2)
+    ax.yaxis.set_tick_params(width=2)
+
     plt.xticks(fontsize=30,fontname = "Arial")
     plt.yticks(fontsize=30,fontname = "Arial")
 
-    plt.savefig(str(directory) + "/dR.png",bbox_inches='tight')
-    plt.savefig(str(directory) + "/dR.eps",bbox_inches='tight')
+    plt.savefig(str(directory) + "/dR.png",bbox_inches='tight',dpi=300)
+    plt.savefig(str(directory) + "/dR.eps",bbox_inches='tight',dpi=300)
 
 
     #Create the stretched version
