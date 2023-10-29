@@ -326,18 +326,23 @@ plt.scatter([np.log10(LList[index])],
 
 
 #Dashed line for the location of L^* and LU
+
 index = np.argmin(dRList/LList)
-plt.plot([np.log10(LList[index]),np.log10(LList[index])],
-        [min(np.log10(dRList/LList)-0.2),np.log10(dRList/LList)[index]],
-        '--k',
-        linewidth = 5)
+#plt.plot([np.log10(LList[index]),np.log10(LList[index])],
+#        [min(np.log10(dRList/LList)-0.2),np.log10(dRList/LList)[index]],
+#        '--k',
+#        linewidth = 5)
 
-
+GradientLogdRList = np.asarray(GradientLogdRList)
 index = np.argmin(GradientLogdRList)
-plt.plot([np.log10(LList[index]),np.log10(LList[index])],
-        [min(np.log10(dRList/LList))-0.2,np.log10(dRList/LList)[index]],
-        '--k',
-        linewidth = 5)
+
+#plt.plot([GradientLogLList[index],GradientLogLList[index]],
+#        [min(np.log10(dRList/LList))-0.2,np.log10(dRList/LList)[index]],
+#        '--k',
+#        linewidth = 5)
+
+MinGradient = GradientLogLList[index]
+
 
 
 CurvLogdRList = np.asarray(CurvLogdRList)
@@ -345,13 +350,11 @@ print(CurvLogdRList)
 CurvMinima = argrelextrema(CurvLogdRList, np.less)
 index = CurvMinima[0][-1]
 print(index)
-#LastMin = CurvLogdRList[index]
-#index = np.where(CurvLogdRList == LastMin)[0]
-#index = np.argmin(CurvLogdRList)
-plt.plot([CurvLogLList[index],CurvLogLList[index]],
-        [min(np.log10(dRList/LList))-0.2,np.log10(dRList/LList)[index]],
-        '--k',
-        linewidth = 5)
+
+#plt.plot([CurvLogLList[index],CurvLogLList[index]],
+#        [min(np.log10(dRList/LList))-0.2,np.log10(dRList/LList)[index]],
+#        '--k',
+#        linewidth = 5)
 
 MinCurvature = CurvLogLList[index]
 
