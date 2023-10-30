@@ -398,7 +398,7 @@ plt.scatter([np.log10(LList[index])],
         edgecolors='black')
 
 
-
+"""
 #Dashed line for the location of L^* and LU
 index = np.argmin(dRList/LList)
 plt.plot([np.log10(LList[index]),np.log10(LList[index])],
@@ -412,7 +412,7 @@ plt.plot([np.log10(LList[index]),np.log10(LList[index])],
         [min(np.log10(dRList/LList))-0.2,np.log10(dRList/LList)[index]],
         '--k',
         linewidth = 5)
-
+"""
 #Formatting
 ax.set_xticks([MindR,MinCurvature])
 ax.set_xticklabels(
