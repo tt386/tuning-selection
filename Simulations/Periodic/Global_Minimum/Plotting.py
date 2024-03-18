@@ -364,7 +364,7 @@ plt.text(1.5,-1,r"$\omega=%0.1f$"%(w),fontsize=30,fontname="Arial")
 #Formatting
 ax.set_xticks([0,MinGradient,MindR,MinCurvature,2])
 ax.set_xticklabels(
-    [r'$10^0$',r'$K_{L}$',r'$K^{*}$',r'$K_{U}$',r'$10^2$'])
+    [r'$10^0$',r'$k_{L}$',r'$k^{*}$',r'$k_{U}$',r'$10^2$'])
 
 ax.set_yticks([-2,0])
 ax.set_yticklabels(

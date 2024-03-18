@@ -365,7 +365,7 @@ upperL = lowerL + 0.5
 upperR = -upperL + (lowerL + lowerR)
 plt.plot([lowerL,upperL],[lowerR,upperR],'--g',linewidth='5',zorder=1)
 
-plt.text(lowerL+0.25,lowerR,r"$L^{-1}$",fontsize=30,fontname="Arial")
+plt.text(lowerL+0.25,lowerR,r"$w^{-1}$",fontsize=30,fontname="Arial")
 
 #Highlight sub-figures
 
@@ -416,7 +416,7 @@ plt.plot([np.log10(LList[index]),np.log10(LList[index])],
 #Formatting
 ax.set_xticks([MindR,MinCurvature])
 ax.set_xticklabels(
-    [r'$L^{*}$',r'$L_{U}$'])
+    [r'$w^{*}$',r'$w_{U}$'])
 
 ax.set_yticks([-4,-2,0])
 ax.set_yticklabels(
