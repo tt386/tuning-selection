@@ -358,7 +358,7 @@ print(index)
 
 MinCurvature = CurvLogLList[index]
 
-plt.text(1.5,-1,r"$\omega=%0.1f$"%(w),fontsize=30,fontname="Arial")
+plt.text(1.5,-1,r"$\alpha=%0.1f$"%(w),fontsize=30,fontname="Arial")
 
 
 #Formatting
