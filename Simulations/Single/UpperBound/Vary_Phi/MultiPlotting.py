@@ -109,10 +109,10 @@ fig_size = (fig_width_mm / 25.4, fig_height_mm / 25.4)  # Convert mm to inches (
 
 fig = plt.figure(figsize=fig_size)
 ax = fig.add_subplot(111)
-plt.scatter(np.log10(PhiList),MinCurvList,c='k',s=200)
-plt.plot(np.log10(PhiList),np.log10(MinCurvTheory),'--g',linewidth=5)
+plt.scatter(np.log10(PhiList),MinCurvList,c='b',edgecolors='k',s=200,zorder=1)
+plt.plot(np.log10(PhiList),np.log10(MinCurvTheory),'--b',linewidth=5,zorder=0)
 
-plt.scatter(np.log10(PhiList),MindRList,c='b',s=200)
+plt.scatter(np.log10(PhiList),MindRList,c='k',s=200,zorder=1)
 
 
 print("PhiList:",PhiList)

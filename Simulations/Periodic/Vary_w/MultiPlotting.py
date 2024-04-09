@@ -202,15 +202,15 @@ fig = plt.figure(3)
 ax = fig.add_subplot(111)
 
 #Lower
-plt.scatter((wList),MinGradList,c='r',edgecolors='k',s=200)
-plt.plot((wList),np.log10(MinGradTheory),'--r',linewidth=5)
+plt.scatter((wList),MinGradList,c='r',edgecolors='k',s=200,zorder=1)
+plt.plot((wList),np.log10(MinGradTheory),'--r',linewidth=5,zorder=0)
 
 #Upper
-plt.scatter((wList),MinCurvList,c='b',edgecolors='k',s=200)
-plt.plot((wList),np.log10(MinCurvTheory),'--b',linewidth=5)
+plt.scatter((wList),MinCurvList,c='b',edgecolors='k',s=200,zorder=1)
+plt.plot((wList),np.log10(MinCurvTheory),'--b',linewidth=5,zorder=0)
 
 #Minimum
-plt.scatter((wList),MindRList,c='k',s=200)
+plt.scatter((wList),MindRList,c='k',s=200,zorder=1)
 
 
 #Formatting
