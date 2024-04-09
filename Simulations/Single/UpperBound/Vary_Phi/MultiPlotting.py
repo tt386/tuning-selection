@@ -112,6 +112,9 @@ ax = fig.add_subplot(111)
 plt.scatter(np.log10(PhiList),MinCurvList,c='k',s=200)
 plt.plot(np.log10(PhiList),np.log10(MinCurvTheory),'--g',linewidth=5)
 
+plt.scatter(np.log10(PhiList),MindRList,c='b',s=200)
+
+
 print("PhiList:",PhiList)
 print("log10PhiList",np.log10(PhiList))
 
@@ -120,9 +123,9 @@ ax.set_xticks([-12,-6,-1])
 ax.set_xticklabels(
     [r'$-12$',r'$-6$',r'$-1$'])
 
-ax.set_yticks([0.5,1])
+ax.set_yticks([0,0.5,1])
 ax.set_yticklabels(
-    [r'$0.5$',r'$1$'])
+    [r'$0.0$',r'$0.5$',r'$1$'])
 
 plt.xticks(fontsize=30,fontname = "Arial")
 plt.yticks(fontsize=30,fontname = "Arial")

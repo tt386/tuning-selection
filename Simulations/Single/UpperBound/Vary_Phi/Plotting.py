@@ -244,10 +244,10 @@ def Single_w_Plot(directory,PlotAll = False):
 
     for i in range(1,len(GradientLogLList)):
         CurvLogLList.append(GradientLogLList[i]-dLogL/2)
-        #CurvLogdRList.append(
-        #        (GradientLogdRList[i]-GradientLogdRList[i-1])/dLogL)
         CurvLogdRList.append(
-                (smoothgrad[i]-smoothgrad[i-1])/dLogL)
+                (GradientLogdRList[i]-GradientLogdRList[i-1])/dLogL)
+        #CurvLogdRList.append(
+        #        (smoothgrad[i]-smoothgrad[i-1])/dLogL)
 
 
     plt.figure()

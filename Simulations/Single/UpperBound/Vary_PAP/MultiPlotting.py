@@ -112,14 +112,16 @@ ax = fig.add_subplot(111)
 plt.scatter(np.log10(1-PAPList),MinCurvList,c='k',s=200)
 plt.plot(np.log10(1-PAPList),np.log10(MinCurvTheory),'--g',linewidth=5)
 
+plt.scatter(np.log10(1-PAPList),MindRList,c='b',s=200)
+
 #Formatting
 ax.set_xticks([-1,0])
 ax.set_xticklabels(
     [r'$-1$',r'$0$'])
 
-ax.set_yticks([0.5,1])
+ax.set_yticks([-0.5,0,0.5,1])
 ax.set_yticklabels(
-    [r'$0.5$',r'$1$'])
+    [r'$-0.5$',r'$0.0$',r'$0.5$',r'$1.0$'])
 
 plt.xticks(fontsize=30,fontname = "Arial")
 plt.yticks(fontsize=30,fontname = "Arial")

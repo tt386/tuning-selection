@@ -13,7 +13,7 @@ Sources=(
 	Simulations/Single/SingleSystemEvolution/SaveFiles/MinL_10.00000_MaxL_40.00000_LNum_3_xbound_1000_dx_1.0E-01_PAP_1.0E-01_Phi_1.0E-05/L_40.00000/5_PostBreedROnly.png
 	Simulations/Single/SingleSystemEvolution/SaveFiles/MinL_10.00000_MaxL_40.00000_LNum_3_xbound_1000_dx_1.0E-01_PAP_1.0E-01_Phi_1.0E-05/L_20.00000/5_PostBreedROnly.png
 	Simulations/Single/SingleSystemEvolution/SaveFiles/MinL_10.00000_MaxL_40.00000_LNum_3_xbound_1000_dx_1.0E-01_PAP_1.0E-01_Phi_1.0E-05/L_10.00000/5_PostBreedROnly.png
-	Simulations/Single/UpperBound/Vary_Phi/SaveFiles/MinL_3.16228_MaxL_31.62278_LNum_200_xbound_1000_minPhi_-12_maxPhi_-1_Phinum_12_PAP_1.0E-01/LU.png
+	Simulations/Single/UpperBound/Vary_Phi/SaveFiles/MinL_0.10000_MaxL_1000.00000_LNum_100_xbound_1000_minPhi_-12_maxPhi_-1_Phinum_12_PAP_1.0E-01/LU.png
 	Simulations/Single/UpperBound/Vary_PAP/SaveFiles/MinL_0.10000_MaxL_1000.00000_LNum_100_xbound_1000_minPAP_0.100_maxPAP_0.900_PAPnum_9_Phi_1.0E-05/LU.png
 
 	Simulations/Periodic/Global_Minimum/SaveFiles/MinK_0.10000_MaxK_1000.00000_KNum_100_w_0.100_dx_1.0E-04_PAP_1.0E-01_Phi_1.0E-05/dR_Detail.png
