@@ -19,6 +19,7 @@ Sources=(
 	Simulations/Periodic/Global_Minimum/SaveFiles/MinK_0.10000_MaxK_1000.00000_KNum_100_w_0.100_dx_1.0E-04_PAP_1.0E-01_Phi_1.0E-05/dR_Detail.png
 	Simulations/Periodic/Vary_w/SaveFiles/MinK_0.10000_MaxK_1000.00000_KNum_100_minw_0.100_maxw_0.900_wnum_9_PAP_1.0E-01_Phi_1.0E-05/LL.png
 	Simulations/Periodic/Vary_w/SaveFiles/MinK_0.10000_MaxK_1000.00000_KNum_100_minw_0.100_maxw_0.900_wnum_9_PAP_1.0E-01_Phi_1.0E-05/LU.png
+	Simulations/Periodic/Vary_w/SaveFiles/MinK_0.10000_MaxK_1000.00000_KNum_100_minw_0.100_maxw_0.900_wnum_9_PAP_1.0E-01_Phi_1.0E-05/Both.png
 
 	Simulations/Constrained_Infinite/SaveFiles/C_100.000_d_0.100_MinN_1.00000_MaxN_200.00000_NNum_200_xbound_1000_dx_1.0E-03_PAP_1.0E-01_Phi_1.0E-05/dR.png
 	Simulations/Constrained_Infinite/SaveFiles/C_100.000_d_10.000_MinN_1.00000_MaxN_200.00000_NNum_200_xbound_1000_dx_5.0E-03_PAP_1.0E-01_Phi_1.0E-05/dR.png
@@ -55,6 +56,7 @@ Names=(
 	Fig3a_PeriodicGlobalMinimum.png
 	Fig3bi_LowerBoundWithw.png
 	Fig3bii_UpperBoundWithw.png
+	Fig3b_UpperBound_LowerBound_Minimum.png
 
 	Fig5_C100_d0.1.png
 	Fig5_C100_d1.png
