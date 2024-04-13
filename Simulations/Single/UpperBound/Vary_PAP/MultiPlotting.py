@@ -59,8 +59,10 @@ MinGradList = []
 MindRList = []
 MinCurvList = []
 
+dRListList = []
+
 for d in dirlist:
-    MinGrad,MindR,MinCurv,Phi,PAP = Plotting.Single_w_Plot(d)
+    MinGrad,MindR,MinCurv,Phi,PAP,dRList,LList = Plotting.Single_w_Plot(d)
 
     PAPList.append(PAP)
     MinGradList.append(MinGrad)
@@ -68,13 +70,53 @@ for d in dirlist:
     MinCurvList.append(MinCurv)
     print("Finished",d)
 
+    dRListList.append(dRList)
 
-PAPList,MinGradList,MindRList,MinCurvList = zip(*sorted(zip(PAPList,MinGradList,MindRList,MinCurvList)))
+
+PAPList,MinGradList,MindRList,MinCurvList, dRListList = zip(*sorted(zip(PAPList,MinGradList,MindRList,MinCurvList,dRListList)))
 
 PAPList = np.asarray(PAPList)
 MinGradList = np.asarray(MinGradList)
 MindRList = np.asarray(MindRList)
 MinCurvList = np.asarray(MinCurvList)
+
+
+# Set the figure size in millimeters
+fig_width_mm = 150
+fig_height_mm = 100
+fig = plt.figure(5)
+ax = fig.add_subplot(111)
+
+for i in range(len(PAPList)):
+    plt.plot(np.log10(LList),np.log10(dRListList[i]/LList), '-k')
+
+#Formatting
+ax.set_xticks([-1,0,1,2,3])
+ax.set_xticklabels(
+    [r'$10^{-1}$',r'$10^{0}$',r'$10^{1}$',r'$10^2$',r'$10^3$'])
+
+ax.set_yticks([-5,-4,-3,-2,-1,0])
+ax.set_yticklabels(
+    [r'$-5$',r'$-4$',r'$-3$',r'$-2$',r'$-1$',r'$0$'])
+
+
+plt.figure(5).set_size_inches(fig_width_mm/25.4,fig_height_mm/25.4,forward=True)
+
+ax.xaxis.set_tick_params(width=2)
+ax.yaxis.set_tick_params(width=2)
+
+plt.xticks(fontsize=30,fontname = "Arial")
+plt.yticks(fontsize=30,fontname = "Arial")
+
+plt.savefig(str(directory) + "/AllMinPlots.png",bbox_inches='tight',dpi=300)
+
+plt.close()
+
+
+
+
+
+
 
 """
 MinGradTheory = np.sqrt(PAP)*np.pi/(PAPList * np.sqrt(np.log(8*PAPList*(1-Phi)/(Phi*np.pi**2))))
@@ -119,9 +161,9 @@ ax.set_xticks([-1,0])
 ax.set_xticklabels(
     [r'$-1$',r'$0$'])
 
-ax.set_yticks([-0.5,0,0.5,1])
+ax.set_yticks([-0.5,0,0.5,1,1.5])
 ax.set_yticklabels(
-    [r'$-0.5$',r'$0.0$',r'$0.5$',r'$1.0$'])
+    [r'$-0.5$',r'$0.0$',r'$0.5$',r'$1.0$',r'$1.5$'])
 
 plt.xticks(fontsize=30,fontname = "Arial")
 plt.yticks(fontsize=30,fontname = "Arial")

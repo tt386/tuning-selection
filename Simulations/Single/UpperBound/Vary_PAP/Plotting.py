@@ -367,7 +367,7 @@ def Single_w_Plot(directory):
 
     print("L at min R: ", 10**MindR)
 
-    return(MinGradient,MindR,MinCurvature,Phi,PAP)
+    return(MinGradient,MindR,MinCurvature,Phi,PAP,dRList,LList)
 
 #########################################################################
 
