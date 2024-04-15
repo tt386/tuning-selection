@@ -214,9 +214,9 @@ plt.scatter((wList),MindRList,c='k',s=200,zorder=1)
 
 
 #Formatting
-ax.set_xticks([0,1])
+ax.set_xticks([0,0.5,1])
 ax.set_xticklabels(
-    [r'$0$',r'$1$'])
+    [r'$0$',r'$0.5$',r'$1$'])
 
 ax.set_yticks([-1,0,1,2])
 ax.set_yticklabels(
