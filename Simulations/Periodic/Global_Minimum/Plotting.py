@@ -1,6 +1,8 @@
 import matplotlib as mpl
 mpl.use('Agg')
 from matplotlib import pyplot as plt
+import matplotlib.patches as patches
+
 
 plt.rcParams['text.usetex'] = True
 mpl.rcParams.update(mpl.rcParamsDefault)
@@ -20,6 +22,8 @@ import scipy.special as special
 from scipy.signal import argrelextrema
 
 import os
+
+import copy
 
 starttime = time.time()
 ################################
@@ -132,6 +136,180 @@ for i in dirlist:
     plt.xlim(0,K)
     plt.savefig(str(i) + "/" + "PAPandEnd.png")
     plt.close()
+
+
+
+
+    #Set the figure size in millimeters
+    fig_width_mm = 125
+    fig_height_mm = 80
+    fig_size = (fig_width_mm / 25.4, fig_height_mm / 25.4)
+    fig,ax = plt.subplots(figsize = fig_size)
+
+
+    #Demands the first and last points of PAPDist are small enough
+    MassagedPAPDist = copy.copy(PAPDist)
+
+    MassagedPAPDist[MassagedPAPDist == 0] = Phi**3
+
+    plt.plot(xlist,np.log10(MassagedPAPDist),'c',linewidth=10,zorder=0)
+    plt.plot(xlist,np.log10(EndDist),'b',linewidth=10,zorder=0)
+    
+    plt.plot(xlist,np.log10(np.ones(len(xlist))*Phi),linewidth=10,color='orange',zorder=0)
+
+    ax.axes.yaxis.set_visible(False)
+    ax.axes.xaxis.set_visible(False)
+
+    ylow = Phi**2
+    yupp = 10**0.5
+
+
+    plt.xlim(0,K)
+    plt.ylim(np.log10(ylow),np.log10(yupp))
+
+
+    ylow = Phi**2
+
+    #Left Rect
+    rect = patches.Rectangle((0,np.log10(ylow)),width=K*w,height=np.log10(10),linewidth=3, edgecolor='k', facecolor='white',zorder=1)
+    ax.add_patch(rect)
+
+    #Right Rect
+    rect = patches.Rectangle((K*w,np.log10(ylow)),width=K*(1-w),height=np.log10(10),linewidth=3, edgecolor='k', facecolor='#808080',zorder=1)
+    ax.add_patch(rect)
+
+
+    plt.tight_layout()
+
+    plt.savefig(str(i) + "/PAP_And_End.png",bbox_inches='tight',dpi=300)
+    plt.close()
+
+    """
+
+    L = K*(1-w)
+
+    xlow = 0-1.5 * L
+    xupp = 2.5 *L
+
+    yupp = 10**0.5
+    ylow = Phi**2
+
+    xticks = []
+    for x in np.arange(int(xlow),int(xupp)+1):
+        if x%10 == 0:
+            xticks.append(x)
+
+    def AddRects(ax,ylow):
+        #Left Rect
+        # Create a Rectangle patch
+        rect = patches.Rectangle((xlow, np.log10(ylow)), abs(xlow), np.log10(10), linewidth=3, edgecolor='k', facecolor='white',zorder=1)
+        # Add the patch to the Axes
+        ax.add_patch(rect)
+
+        #Right Rect
+        #Left Rect
+        # Create a Rectangle patch
+        rect = patches.Rectangle((L, np.log10(ylow)), abs(xlow), np.log10(10), linewidth=3, edgecolor='k', facecolor='white',zorder=1)
+        # Add the patch to the Axes
+        ax.add_patch(rect)
+
+        #Middle Ret
+        # Create a Rectangle patch
+        rect = patches.Rectangle((0, np.log10(ylow)), L, np.log10(10), linewidth=1, edgecolor='k', facecolor='#808080',zorder=1)
+        # Add the patch to the Axes
+        ax.add_patch(rect)
+
+    def Setup(plt,ax,xlist,S,R,axisbool):
+        ylow = Phi**2
+
+
+        plt.plot(xlist,np.log10(S),linewidth=10,color='blue',zorder=0)
+        plt.plot(xlist,np.log10(R),linewidth=10,color='orange',zorder=0)
+
+        plt.xlim(xlow,xupp)
+
+
+        if axisbool:
+            plt.yticks(fontsize=30)
+
+            ax.set_yticks([0,-2,-4,-6])
+            ax.set_yticklabels(
+                [r'$0$',r'$-2$',r'$-4$',r'$-6$'])
+
+            ylow = Phi/10
+
+        else:
+            ax.axes.yaxis.set_visible(False)
+
+        plt.ylim(np.log10(ylow),np.log10(yupp))
+
+        AddRects(ax,ylow)
+
+        ax.axes.xaxis.set_visible(False)
+        plt.tight_layout()
+
+
+
+    # Set the figure size in millimeters
+    fig_width_mm = 125
+    fig_height_mm = 80
+    fig_size = (fig_width_mm / 25.4, fig_height_mm / 25.4)  # Convert mm to inches (25.4 mm in an inch)
+
+    InitDist = (1-Phi)* np.ones(len(PAPDist))
+    InitDist[abs(xlist-L/2)<L/2] = 0
+
+    RList = Phi* np.ones(len(PAPDist))
+
+    cm = 1/2.54
+
+    fig,ax = plt.subplots(figsize = fig_size)
+    Setup(plt,ax,xlist,InitDist,RList,0)
+    plt.savefig(str(i) + "/1_Init.png",bbox_inches='tight',dpi=300)
+    plt.close()
+
+    fig,ax = plt.subplots(figsize = fig_size)
+    PAPDist[PAPDist<ylow/10] = ylow/10
+    Setup(plt,ax,xlist,PAPDist,RList,0)
+    plt.savefig(str(i) + "/2_PAP.png",bbox_inches='tight',dpi=300)
+    plt.close()
+
+    fig,ax = plt.subplots(figsize = fig_size)
+    Setup(plt,ax,xlist,EndDist,RList,0)
+    plt.savefig(str(i) + "/3_End.png",bbox_inches='tight',dpi=300)
+    plt.close()
+
+    fig,ax = plt.subplots(figsize = fig_size)
+    Setup(plt,ax,xlist,EndDist/(EndDist+RList),RList/(EndDist+RList),0)
+    plt.savefig(str(i) + "/4_PostBreed.png",bbox_inches='tight',dpi=300)
+    plt.close()
+
+
+    fig,ax = plt.subplots(figsize = fig_size)
+    Setup(plt,ax,xlist,0*np.zeros(len(RList)),RList/(EndDist+RList),1)
+    plt.savefig(str(i) + "/5_PostBreedROnly.png",bbox_inches='tight',dpi=300)
+    plt.close()
+
+
+    """
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     """
     # Multiple
