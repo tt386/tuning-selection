@@ -16,7 +16,7 @@ Sources=(
 	Simulations/Single/UpperBound/Vary_Phi/SaveFiles/MinL_0.10000_MaxL_1000.00000_LNum_100_xbound_1000_minPhi_-12_maxPhi_-1_Phinum_12_PAP_1.0E-01/LU.png
 	Simulations/Single/UpperBound/Vary_PAP/SaveFiles/MinL_0.10000_MaxL_1000.00000_LNum_100_xbound_1000_minPAP_0.100_maxPAP_0.900_PAPnum_9_Phi_1.0E-05/LU.png
 
-	Simulations/Periodic/Global_Minimum/SaveFiles/MinK_0.10000_MaxK_1000.00000_KNum_100_w_0.100_dx_1.0E-04_PAP_1.0E-01_Phi_1.0E-05/K_3.59502/PAP_And_End.png
+	Simulations/Periodic/Global_Minimum/SaveFiles/MinK_0.10000_MaxK_1000.00000_KNum_100_w_0.100_dx_1.0E-04_PAP_1.0E-01_Phi_1.0E-05/K_2.59502/PAP_And_End.png
 	Simulations/Periodic/Global_Minimum/SaveFiles/MinK_0.10000_MaxK_1000.00000_KNum_100_w_0.100_dx_1.0E-04_PAP_1.0E-01_Phi_1.0E-05/K_97.70100/PAP_And_End.png
 	Simulations/Periodic/Global_Minimum/SaveFiles/MinK_0.10000_MaxK_1000.00000_KNum_100_w_0.100_dx_1.0E-04_PAP_1.0E-01_Phi_1.0E-05/dR_Detail.png
 	Simulations/Periodic/Vary_w/SaveFiles/MinK_0.10000_MaxK_1000.00000_KNum_100_minw_0.100_maxw_0.900_wnum_9_PAP_1.0E-01_Phi_1.0E-05/LL.png
