@@ -141,8 +141,8 @@ for i in dirlist:
 
 
     #Set the figure size in millimeters
-    fig_width_mm = 125
-    fig_height_mm = 80
+    fig_width_mm = 85
+    fig_height_mm = 50
     fig_size = (fig_width_mm / 25.4, fig_height_mm / 25.4)
     fig,ax = plt.subplots(figsize = fig_size)
 
