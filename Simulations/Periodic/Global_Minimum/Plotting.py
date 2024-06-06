@@ -610,9 +610,9 @@ ax.set_xticks([0,MinGradient,MindR,MinCurvature,2])
 ax.set_xticklabels(
     [r'$10^0$',r'$k_{L}$',r'$k^{*}$',r'$k_{U}$',r'$10^2$'])
 
-ax.set_yticks([-2,0])
+ax.set_yticks([-4,-2,0])
 ax.set_yticklabels(
-    [r'$-2$',r'$0$'])
+    [r'$-4$',r'$-2$',r'$0$'])
 
 plt.xlim(0,2)
 
