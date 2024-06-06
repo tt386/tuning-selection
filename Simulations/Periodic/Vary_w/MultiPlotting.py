@@ -24,6 +24,11 @@ import os
 import subprocess
 import Plotting
 
+import matplotlib.cm as cm
+import matplotlib.colors as mcolors
+
+
+
 starttime = time.time()
 
 ################################
@@ -85,22 +90,41 @@ MinCurvList = np.asarray(MinCurvList)
 
 
 # Set the figure size in millimeters
-fig_width_mm = 150
-fig_height_mm = 100
+fig_width_mm = 400#150
+fig_height_mm = 90#100
 fig = plt.figure(5)
 ax = fig.add_subplot(111)
 
+
+#create colormap
+cmap = cm.viridis
+n = len(wList)
+norm = mcolors.Normalize(vmin=0,vmax=n-1)
+
+
 for i in range(len(wList)):
-    plt.plot(np.log10(LList),np.log10(dRListList[i]/LList), '-k')
+    plt.plot(np.log10(LList),np.log10(dRListList[i]/(LList * (1-wList[i]))), color=cmap(norm(i)),linewidth=5)
+
+# Creating the colorbar
+sm = cm.ScalarMappable(cmap=cmap, norm=norm)
+sm.set_array([])  # Only needed for matplotlib < 3.1
+cbar = plt.colorbar(sm, ax=ax)
+
+# Set custom labels on the colorbar
+#cbar.set_label('Line Index')
+cbar.set_ticks(np.linspace(0, n-1, n))
+cbar.set_ticklabels([r'$0.1$',r'$0.2$',r'$0.3$',r'$0.4$',r'$0.5$',r'$0.6$',r'$0.7$',r'$0.8$',r'$0.9$'])
+cbar.ax.tick_params(labelsize=20)
+
 
 #Formatting
-ax.set_xticks([0,1,2])
+ax.set_xticks([-1,0,1,2,3])
 ax.set_xticklabels(
-    [r'$10^{0}$',r'$10^{1}$',r'$10^2$'])
+    [r'$10^{-1}$',r'$10^{0}$',r'$10^{1}$',r'$10^2$',r'$10^{3}$'])
 
-ax.set_yticks([-5,-4,-3,-2,-1,0])
+ax.set_yticks([-5,-4,-3,-2,-1,0,1])
 ax.set_yticklabels(
-    [r'$-5$',r'$-4$',r'$-3$',r'$-2$',r'$-1$',r'$0$'])
+    [r'$-5$',r'$-4$',r'$-3$',r'$-2$',r'$-1$',r'$0$',r'$1$'])
 
 
 plt.figure(5).set_size_inches(fig_width_mm/25.4,fig_height_mm/25.4,forward=True)
