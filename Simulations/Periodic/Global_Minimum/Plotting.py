@@ -433,7 +433,7 @@ MinCurvature = CurvLogLList[np.argmin(CurvLogdRList)]
 # Change in R with changing L
 fig = plt.figure()
 ax = fig.add_subplot(111)
-plt.plot(np.log10(LList),np.log10(dRList/LList), '-k',linewidth=5)
+plt.plot(np.log10(LList),np.log10(dRList/(LList* (1-w))), '-k',linewidth=5)
 
 #Formatting
 ax.set_xticks([0,1,2])
@@ -460,7 +460,7 @@ fig_height_mm = 90
 
 fig = plt.figure(2)
 ax = fig.add_subplot(111)
-plt.plot(np.log10(LList),np.log10(dRList/LList), '-k',linewidth=5)
+plt.plot(np.log10(LList),np.log10(dRList/LList*(1-w)), '-k',linewidth=5)
 #Create the stretched version
 
 plt.xticks(fontsize=30,fontname = "Arial")
