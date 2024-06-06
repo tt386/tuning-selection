@@ -238,6 +238,9 @@ dRList = np.asarray(dRList)
 #P_dRList = np.asarray(P_dRList)
 
 
+print(repr(LList))
+
+print(repr(dRList))
 
 
 #########################################################################
