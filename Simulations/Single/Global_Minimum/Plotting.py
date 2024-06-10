@@ -419,7 +419,7 @@ plt.plot([np.log10(LList[index]),np.log10(LList[index])],
 #Formatting
 ax.set_xticks([-2,-1,MindR,MinCurvature,2])
 ax.set_xticklabels(
-    [r'$-2$',r'$-1$',r'$w^{*}$',r'$w_{U}$',r'$2$'])
+    [r'$10^{-2}$',r'$10^{-1}$',r'$w^{*}$',r'$w_{U}$',r'$10^{2}$'])
 
 ax.set_yticks([-4,-2,0])
 ax.set_yticklabels(
