@@ -308,18 +308,29 @@ fig = plt.figure(figsize=fig_size)
 ax = fig.add_subplot(111)
 
 
-plt.plot(NList,np.log10(dRList), '-k',linewidth=5)
-plt.plot(NList,np.log10(I_dRList),'--c',linewidth=5)
-plt.plot(NList,np.log10(I_TOT_dRList),linestyle='dashdot',color='orange',linewidth=5)
-plt.plot(NList,np.log10(P_dRList),':r',linewidth=5)
+plt.semilogx(NList,np.log10(dRList), '-k',linewidth=5)
+plt.semilogx(NList,np.log10(I_dRList),'--c',linewidth=5)
+plt.semilogx(NList,np.log10(I_TOT_dRList),linestyle='dashdot',color='orange',linewidth=5)
+plt.semilogx(NList,np.log10(P_dRList),':r',linewidth=5)
 
 #Formatting
-plt.xticks([0,max(NList)])
+plt.xticks([1,max(NList)])
 
-ax.set_xticks([0,int(max(NList)/2),max(NList)])
+ax.set_xticks([1,10])
 ax.set_xticklabels(
-    [r'$0$',r'$%d$'%(int(max(NList)/2)),r'$%d$'%(max(NList))])
+    [r'$1$',r'$10$'])
 
+if max(NList) > 30:
+    ax.set_xticks([1,10,100])
+    ax.set_xticklabels(
+        [r'$1$',r'$10$',r'$100$'])
+
+
+"""
+ax.set_xticks([1,int(max(NList)/2),max(NList)])
+ax.set_xticklabels(
+    [r'$1$',r'$%d$'%(int(max(NList)/2)),r'$%d$'%(max(NList))])
+"""
 ax.set_yticks([-4,-2,0,2,4])
 ax.set_yticklabels(
     ['$-4$',r'$-2$',r'$0$',r'$2$',r'$4$'])
