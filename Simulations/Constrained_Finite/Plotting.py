@@ -311,10 +311,10 @@ fig_size = (fig_width_mm / 25.4, fig_height_mm / 25.4)  # Convert mm to inches (
 fig = plt.figure(figsize=fig_size)
 ax = fig.add_subplot(111)
 
-plt.semilogx(NList,np.log10(dRList), '-k',linewidth=5)
-plt.semilogx(NList,np.log10(I_dRList),'--c',linewidth=5)
-plt.semilogx(NList,np.log10(I_TOT_dRList),linestyle='dashdot',color='orange',linewidth=5)
-plt.semilogx(NList,np.log10(P_dRList),':r',linewidth=5)
+plt.semilogx(NList,np.log10(dRList/C), '-k',linewidth=5)
+plt.semilogx(NList,np.log10(I_dRList/C),'--c',linewidth=5)
+plt.semilogx(NList,np.log10(I_TOT_dRList/C),linestyle='dashdot',color='orange',linewidth=5)
+plt.semilogx(NList,np.log10(P_dRList/C),':r',linewidth=5)
 
 
 """
@@ -348,10 +348,18 @@ ax.set_xticks([0,int(max(NList-NList%10)/2),max(NList-NList%10)])
 ax.set_xticklabels(
     [r'$0$',r'$%d$'%(int(max(NList-NList%10)/2)),r'$%d$'%(max(NList-NList%10))])
 """
+
+ax.set_yticks([-4,-2,0,2])
+ax.set_yticklabels(
+    ['$-4$',r'$-2$',r'$0$',r'$2$'])
+
+
+
+"""
 ax.set_yticks([-4,-2,0,2,4])
 ax.set_yticklabels(
     ['$-4$',r'$-2$',r'$0$',r'$2$',r'$4$'])
-
+"""
 plt.xticks(fontsize=30,fontname = "Arial")
 plt.yticks(fontsize=30,fontname = "Arial")
 
