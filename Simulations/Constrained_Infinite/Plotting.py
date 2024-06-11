@@ -308,10 +308,17 @@ fig = plt.figure(figsize=fig_size)
 ax = fig.add_subplot(111)
 
 
+globminindex = np.argmin(dRList)
+nmin = NList[globminindex]
+dRmin = dRList[globminindex]
+
+
 plt.semilogx(NList,np.log10(dRList/C), '-k',linewidth=5)
 plt.semilogx(NList,np.log10(I_dRList/C),'--c',linewidth=5)
 plt.semilogx(NList,np.log10(I_TOT_dRList/C),linestyle='dashdot',color='orange',linewidth=5)
 plt.semilogx(NList,np.log10(P_dRList/C),':r',linewidth=5)
+
+plt.scatter([nmin],[np.log10(dRmin/C)],s=200,c='gray')
 
 #Formatting
 plt.xticks([1,max(NList)])
