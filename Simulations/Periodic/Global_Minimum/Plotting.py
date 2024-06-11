@@ -524,7 +524,14 @@ fig = plt.figure(2)
 ax = fig.add_subplot(111)
 plt.plot(np.log10(LList),np.log10(dRList/(LList*(1-w))), '-k',linewidth=5)
 
+#Data from isolated
 plt.plot(np.log10(IsolatedLList/(1-w)),np.log10(IsolateddRList/IsolatedLList),'gray',linestyle='dashed',linewidth = 5)
+
+
+#We predict how the lower region behaves
+lower = Phi / (Phi + (8*w*(1-Phi))/(np.pi**2) * np.exp(-PAP*(np.pi/(LList*w))**2) ) - Phi
+
+plt.plot(np.log10(LList),np.log10(lower/(1-w)),'gray',linestyle='dotted',linewidth=5)
 
 
 #Create the stretched version
@@ -602,7 +609,7 @@ print(index)
 
 MinCurvature = CurvLogLList[index]
 
-plt.text(1.5,-1,r"$\alpha=%0.1f$"%(w),fontsize=30,fontname="Arial")
+plt.text(0.1,-2.5,r"$\alpha=%0.1f$"%(w),fontsize=30,fontname="Arial")
 
 
 #Formatting
