@@ -308,10 +308,10 @@ fig = plt.figure(figsize=fig_size)
 ax = fig.add_subplot(111)
 
 
-plt.semilogx(NList,np.log10(dRList), '-k',linewidth=5)
-plt.semilogx(NList,np.log10(I_dRList),'--c',linewidth=5)
-plt.semilogx(NList,np.log10(I_TOT_dRList),linestyle='dashdot',color='orange',linewidth=5)
-plt.semilogx(NList,np.log10(P_dRList),':r',linewidth=5)
+plt.semilogx(NList,np.log10(dRList/C), '-k',linewidth=5)
+plt.semilogx(NList,np.log10(I_dRList/C),'--c',linewidth=5)
+plt.semilogx(NList,np.log10(I_TOT_dRList/C),linestyle='dashdot',color='orange',linewidth=5)
+plt.semilogx(NList,np.log10(P_dRList/C),':r',linewidth=5)
 
 #Formatting
 plt.xticks([1,max(NList)])
@@ -331,9 +331,17 @@ ax.set_xticks([1,int(max(NList)/2),max(NList)])
 ax.set_xticklabels(
     [r'$1$',r'$%d$'%(int(max(NList)/2)),r'$%d$'%(max(NList))])
 """
+
+ax.set_yticks([-6,-4,-2,0,2])
+ax.set_yticklabels(
+    [r'$-6$','$-4$',r'$-2$',r'$0$',r'$2$'])
+
+
+"""
 ax.set_yticks([-4,-2,0,2,4])
 ax.set_yticklabels(
     ['$-4$',r'$-2$',r'$0$',r'$2$',r'$4$'])
+"""
 
 plt.xticks(fontsize=30,fontname = "Arial")
 plt.yticks(fontsize=30,fontname = "Arial")
