@@ -17,8 +17,11 @@ shutil.copy("Params.py",SaveDirName)
 plist = []
 
 for N in NList:
-    p=subprocess.Popen(['nice','-n','19','python','Script.py','-N',str(N)])
-    plist.append(p)
+    if N>600:
+        p=subprocess.Popen(['nice','-n','19','python','Script.py','-N',str(N)])
+        plist.append(p)
+
+
 
 for p in plist:
     p.wait()

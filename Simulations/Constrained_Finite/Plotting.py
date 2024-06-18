@@ -53,7 +53,7 @@ for i in tempdirlist:
     if os.path.isdir(os.path.join(args.directory,i)):
         dirlist.append(os.path.join(args.directory,i))
 
-print("Dirlist:",dirlist)
+#print("Dirlist:",dirlist)
 
 NList = []
 dRList = []
@@ -67,7 +67,7 @@ for i in dirlist:
             N = data["N"]
             D = data["D"]
             B = data["B"]
-            print("Region number:",N)
+            #print("Region number:",N)
             PAP = data["PAP"]
             Phi = data["Phi"]
             #C = data["C"]
@@ -77,21 +77,21 @@ for i in dirlist:
             K = data['K']
             w = data['w']
             
-            M_PAPDist = data["M_PAPDist"]
-            M_EndDist = data["M_EndDist"]
-            M_xlist = data["M_xlist"]
+            #M_PAPDist = data["M_PAPDist"]
+            #M_EndDist = data["M_EndDist"]
+            #M_xlist = data["M_xlist"]
 
-            I_PAPDist = data["I_PAPDist"]
-            I_EndDist = data["I_EndDist"]
-            I_xlist = data["I_xlist"]
+            #I_PAPDist = data["I_PAPDist"]
+            #I_EndDist = data["I_EndDist"]
+            #I_xlist = data["I_xlist"]
 
-            I_TOT_PAPDist = data["I_TOT_PAPDist"]
-            I_TOT_EndDist = data["I_TOT_EndDist"]
-            I_TOT_xlist = data["I_TOT_xlist"]
+            #I_TOT_PAPDist = data["I_TOT_PAPDist"]
+            #I_TOT_EndDist = data["I_TOT_EndDist"]
+            #I_TOT_xlist = data["I_TOT_xlist"]
 
-            P_PAPDist = data["P_PAPDist"]
-            P_EndDist = data["P_EndDist"]
-            P_xlist = data["P_xlist"]
+            #P_PAPDist = data["P_PAPDist"]
+            #P_EndDist = data["P_EndDist"]
+            #P_xlist = data["P_xlist"]
 
             #dR = data["dR"]
             M_ApproxIntegral = data["M_ApproxIntegral"]
@@ -116,7 +116,7 @@ for i in dirlist:
             #P_xlist = data["P_xlist"]
 
             timetaken = data["timetaken"]
-            print("dir found")
+            #print("dir found")
 
     except Exception as e: print(e)
 
@@ -315,6 +315,22 @@ plt.semilogx(NList,np.log10(dRList/C), '-k',linewidth=5)
 plt.semilogx(NList,np.log10(I_dRList/C),'--c',linewidth=5)
 plt.semilogx(NList,np.log10(I_TOT_dRList/C),linestyle='dashdot',color='orange',linewidth=5)
 plt.semilogx(NList,np.log10(P_dRList/C),':r',linewidth=5)
+
+
+
+globminindex = np.argmin(dRList)
+nmin = NList[globminindex]
+dRmin = dRList[globminindex]
+
+plt.scatter([nmin],[np.log10(dRmin/C)],s=200,c='gray')
+
+
+print("h,beta = ",D,B," Minimum occurs at N=",nmin)
+print("Corresponding w is ",D*B/nmin)
+print("Corresponding d is ",D*(1-B)/(nmin-1))
+
+
+
 
 
 """

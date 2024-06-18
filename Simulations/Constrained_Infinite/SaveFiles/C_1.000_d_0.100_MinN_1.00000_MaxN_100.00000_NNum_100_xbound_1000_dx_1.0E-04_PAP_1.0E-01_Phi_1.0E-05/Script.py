@@ -11,7 +11,6 @@ import copy
 
 import time
 
-import gc
 
 
 
@@ -49,26 +48,12 @@ M_EndDist = Core.EndDist_Single(M_PAPDist,Kernel,M_xlist,(N-1)*d+C,dx)
 M_ApproxIntegral = Core.dR(Phi,M_EndDist,M_xlist)
 print(N,"Finished Multiple")
 
-del M_xlist
-del M_PAPDist
-del Kernel
-del M_EndDist
-
-gc.collect()
-
 #Isolated Approx
 I_xlist,I_PAPDist = Core.PAPDist_Single(xbound,C/N,dx,Phi,PAP)
 Kernel = Core.Kernel(PAP,I_xlist)
 I_EndDist = Core.EndDist_Single(I_PAPDist,Kernel,I_xlist,C/N,dx)
 I_ApproxIntegral = N*Core.dR(Phi,I_EndDist,I_xlist)
 print(N,"Finished Isolated")
-
-del I_xlist
-del I_PAPDist
-del Kernel
-del I_EndDist
-
-gc.collect()
 
 #Large Single Approx
 I_TOT_xlist,I_TOT_PAPDist = Core.PAPDist_Single(xbound,C+(N-1)*d,dx,Phi,PAP)
@@ -77,12 +62,6 @@ I_TOT_EndDist = Core.EndDist_Single(I_TOT_PAPDist,Kernel,I_TOT_xlist,C+(N-1)*d,d
 I_TOT_ApproxIntegral = Core.dR(Phi,I_TOT_EndDist,I_TOT_xlist)
 print(N,"Finished Isolated Total")
 
-del I_TOT_xlist
-del I_TOT_PAPDist
-del Kernel
-del I_TOT_EndDist
-
-gc.collect()
 
 #Periodic Approx
 K = d+C/N
@@ -93,20 +72,13 @@ P_EndDist = Core.EndDist_Periodic(P_PAPDist,Kernel,P_xlist,K,w,dx,PAP)
 P_ApproxIntegral = N*Core.dR(Phi,P_EndDist,P_xlist)
 print(N,"Finished Periodic")
 
-del P_xlist
-del P_PAPDist
-del Kernel
-del P_EndDist
-
-gc.collect()
-
 ########################################
 ###Time and Saving######################
 ########################################
 
 endtime = time.time()
 timetaken = endtime-starttime
-print("Time Taken for N=%d :"%(N),timetaken)
+print("Time Taken:",timetaken)
 
 
 OutputDatafilename = NumSaveDirName + '/datafile.npz'
@@ -138,4 +110,3 @@ np.savez(OutputDatafilename,
     #P_EndDist=P_EndDist,
     P_ApproxIntegral=P_ApproxIntegral,
     timetaken=timetaken)
-print("Saved Data for N=%d"%(N))

@@ -77,21 +77,21 @@ for i in dirlist:
             K = data['K']
             w = data['w']
             
-            M_PAPDist = data["M_PAPDist"]
-            M_EndDist = data["M_EndDist"]
-            M_xlist = data["M_xlist"]
+            #M_PAPDist = data["M_PAPDist"]
+            #M_EndDist = data["M_EndDist"]
+            #M_xlist = data["M_xlist"]
 
-            I_PAPDist = data["I_PAPDist"]
-            I_EndDist = data["I_EndDist"]
-            I_xlist = data["I_xlist"]
+            #I_PAPDist = data["I_PAPDist"]
+            #I_EndDist = data["I_EndDist"]
+            #I_xlist = data["I_xlist"]
 
-            I_TOT_PAPDist = data["I_TOT_PAPDist"]
-            I_TOT_EndDist = data["I_TOT_EndDist"]
-            I_TOT_xlist = data["I_TOT_xlist"]
+            #I_TOT_PAPDist = data["I_TOT_PAPDist"]
+            #I_TOT_EndDist = data["I_TOT_EndDist"]
+            #I_TOT_xlist = data["I_TOT_xlist"]
 
-            P_PAPDist = data["P_PAPDist"]
-            P_EndDist = data["P_EndDist"]
-            P_xlist = data["P_xlist"]
+            #P_PAPDist = data["P_PAPDist"]
+            #P_EndDist = data["P_EndDist"]
+            #P_xlist = data["P_xlist"]
 
             #dR = data["dR"]
             M_ApproxIntegral = data["M_ApproxIntegral"]
@@ -320,6 +320,9 @@ plt.semilogx(NList,np.log10(P_dRList/C),':r',linewidth=5)
 
 plt.scatter([nmin],[np.log10(dRmin/C)],s=200,c='gray')
 
+
+print("Minimum occurs at N=",nmin)
+
 #Formatting
 plt.xticks([1,max(NList)])
 
@@ -331,6 +334,12 @@ if max(NList) > 30:
     ax.set_xticks([1,10,100])
     ax.set_xticklabels(
         [r'$1$',r'$10$',r'$100$'])
+
+if max(NList) > 300:
+    ax.set_xticks([1,10,100,1000])
+    ax.set_xticklabels(
+        [r'$1$',r'$10$',r'$100$',r'$1000$'])
+
 
 
 """

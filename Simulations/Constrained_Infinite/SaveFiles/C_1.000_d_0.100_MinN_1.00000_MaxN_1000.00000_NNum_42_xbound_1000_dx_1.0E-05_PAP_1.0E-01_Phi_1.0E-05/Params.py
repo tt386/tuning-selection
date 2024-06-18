@@ -5,18 +5,26 @@ import shutil
 
 
 #Total width of Selection Region
-LList = np.logspace(-2,2,100)
+C = 1#[1,10,100]
 
-"""
+#LList = np.logspace(-2,2,100)
+
+
 #Number of sub Selection regions
-NList = np.arange(1,21,1)
+NList = np.arange(1,201,1)
+
+NList = np.logspace(0,np.log10(1000),50).astype(int)
+NList = set(NList)
+NList = np.asarray(list(sorted(NList)))
+
+print(NList)
+
 
 #Separations
-d = 0.1#10#dList = np.arange(1,11)
-"""
+d = 0.1#[0.1,1,10]#10#dList = np.arange(1,11)
 
 #Make dx 10 times smaller than the smallest L
-dx = min(LList)/10
+dx = min(min(C/NList),d)/100
 
 #The uppermost x-bound: make it larger than necessary
 xbound  =1000
@@ -25,11 +33,13 @@ xbound  =1000
 Phi = 1e-5
 
 #Time for which the pesticide is applied
-PAP = 0#0.1
+PAP = 0.1
 
 
 SaveDirName = ("SaveFiles/"+
-            "MinL_%0.5f_MaxL_%0.5f_LNum_%d"%(min(LList),max(LList),len(LList)) +
+            "C_%0.3f"%(C) +
+            "_d_%0.3f"%(d) + 
+            "_MinN_%0.5f_MaxN_%0.5f_NNum_%d"%(min(NList),max(NList),len(NList)) +
             "_xbound_%d"%(xbound) + 
             "_dx_" + '{:.1E}'.format(dx) +
             "_PAP_" + '{:.1E}'.format(PAP) +
