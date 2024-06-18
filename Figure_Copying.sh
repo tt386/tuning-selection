@@ -41,9 +41,7 @@ Sources=(
 	Simulations/Constrained_Finite/SaveFiles/D_1000.000_B_0.500_MinN_1.00000_MaxN_2001.00000_NNum_201_xbound_1000_dx_2.5E-03_PAP_1.0E-01_Phi_1.0E-05/dR.png
 	Simulations/Constrained_Finite/SaveFiles/D_1000.000_B_0.800_MinN_1.00000_MaxN_2001.00000_NNum_201_xbound_1000_dx_1.0E-03_PAP_1.0E-01_Phi_1.0E-05/dR.png
 
-	Simulations/Single/Global_Minimum/SaveFiles/MinL_0.01000_MaxL_100.00000_LNum_100_xbound_1000_dx_1.0E-03_PAP_0.0E+00_Phi_1.0E-05/dR.png
-	Simulations/Single/Global_Minimum/SaveFiles/MinL_0.01000_MaxL_100.00000_LNum_100_xbound_1000_dx_1.0E-03_PAP_1.0E+00_Phi_1.0E-05/dR.png
-
+	Simulations/Single/Global_Minimum/SaveFiles/dR.png
 
 	)
 
@@ -86,8 +84,7 @@ Names=(
 	Fig6_D1000_B0.5.png
         Fig6_D1000_B0.8.png
 
-	SuppFig_p0.png
-	SuppFig_p1.png
+	SuppFig_p_0_0.1_1.png
 	)
 
 for i in "${!Sources[@]}"; do
