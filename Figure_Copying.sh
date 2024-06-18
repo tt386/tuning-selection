@@ -65,14 +65,14 @@ Names=(
 	Supplement_All_alpha.png
 
 	Fig5_C100_d0.1.png
-	Fig5_C100_d1.png
 	Fig5_C100_d10.png
+	Fig5_C100_d1.png
 	Fig5_C10_d0.1.png
-        Fig5_C10_d1.png
         Fig5_C10_d10.png
+        Fig5_C10_d1.png
 	Fig5_C1_d0.1.png
-        Fig5_C1_d1.png
         Fig5_C1_d10.png
+        Fig5_C1_d1.png
 
 	Fig6_D10_B0.5.png
 	Fig6_D10_B0.8.png
