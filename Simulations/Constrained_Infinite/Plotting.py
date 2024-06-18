@@ -348,11 +348,11 @@ ax.set_xticklabels(
     [r'$1$',r'$%d$'%(int(max(NList)/2)),r'$%d$'%(max(NList))])
 """
 
-ax.set_yticks([-6,-4,-2,0,2])
+ax.set_yticks([-6,-4,-2,0,2,4])
 ax.set_yticklabels(
-    [r'$-6$','$-4$',r'$-2$',r'$0$',r'$2$'])
+    [r'$-6$','$-4$',r'$-2$',r'$0$',r'$2$',r'$4$'])
 
-
+plt.ylim(-6,4)
 """
 ax.set_yticks([-4,-2,0,2,4])
 ax.set_yticklabels(
