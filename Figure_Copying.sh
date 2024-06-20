@@ -43,6 +43,8 @@ Sources=(
 
 	Simulations/Single/Global_Minimum/SaveFiles/dR.png
 
+	Simulations/Single/RemovingDispersalEvents/SaveFiles/dR.png
+
 	)
 
 Names=(
@@ -85,6 +87,7 @@ Names=(
         Fig6_D1000_B0.8.png
 
 	SuppFig_p_0_0.1_1.png
+	SuppFig_DifferentMigrations.png
 	)
 
 for i in "${!Sources[@]}"; do
