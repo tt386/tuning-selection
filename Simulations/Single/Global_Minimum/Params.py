@@ -25,7 +25,7 @@ xbound  =1000
 Phi = 1e-5
 
 #Time for which the pesticide is applied
-PAP = 0#0.1
+PAP = 1#0.1
 
 
 SaveDirName = ("SaveFiles/"+

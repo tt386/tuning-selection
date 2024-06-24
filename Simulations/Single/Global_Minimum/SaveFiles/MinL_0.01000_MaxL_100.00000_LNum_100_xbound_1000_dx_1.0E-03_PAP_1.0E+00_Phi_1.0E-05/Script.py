@@ -43,9 +43,13 @@ if not os.path.isdir(NumSaveDirName):
 
 xlist, PAPDist = Core.PAPDist_Single(xbound,L,dx,Phi,PAP)
 
-Kernel = Core.Kernel(PAP,xlist)
+if PAP < 1:
+    Kernel = Core.Kernel(PAP,xlist)
 
-EndDist = Core.EndDist_Single(PAPDist,Kernel,xlist,L,dx)
+    EndDist = Core.EndDist_Single(PAPDist,Kernel,xlist,L,dx)
+
+else:
+    EndDist = PAPDist
 
 ApproxIntegral = Core.dR(Phi,EndDist,xlist)
 

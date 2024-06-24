@@ -167,18 +167,22 @@ for i in range(len(DispIgnoreList)):
     if DispIgnore == 0:
         linestyle = 'solid'
         color = 'k'
+        zorder = 1
     elif DispIgnore == 1:
         linestyle = 'dotted'
         color = 'dimgray'
+        zorder = 3
     elif DispIgnore == 2:
         linestyle = 'dashed'
         color = 'gray'
+        zorder = 2
     elif DispIgnore == 3:
         linestyle = 'dashdot'
         color = 'lightgray'
+        zorder = 0
 
 
-    plt.plot(np.log10(LList),np.log10(dRList/LList), color=color,linestyle=linestyle,linewidth=5)
+    plt.plot(np.log10(LList),np.log10(dRList/LList), color=color,linestyle=linestyle,linewidth=5,zorder=zorder)
 
 #Formatting
 #Formatting
@@ -186,11 +190,11 @@ plt.xticks([-2,-1,0,1,2])
 
 ax.set_xticks([-6,-4,-2,0,2])
 ax.set_xticklabels(
-    ['$10^{-6}$',r'$10^{-4}$',r'$10^{-2}$',r'$10^0$',r'$10^2$'])
+    ['$-6$',r'$-4$',r'$-2$',r'$0$',r'$2$'])
 
 ax.set_yticks([-6,-4,-2,0,2])
 ax.set_yticklabels(
-    ['$10^{-6}$','$10^{-4}$',r'$10^{-2}$',r'$10^{0}$',r'$10^2$'])
+    ['$-6$','$-4$',r'$-2$',r'$0$',r'$2$'])
 
 plt.figure(1).set_size_inches(fig_width_mm/25.4,fig_height_mm/25.4,forward=True)
 
