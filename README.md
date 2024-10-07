@@ -153,3 +153,12 @@ Consider a total amount of space where it is possible for Selection region to be
 ![Constrained Finite](./RawFigs/Fig6_D100_B0.5.png)
 
 ## Reproducing figures
+
+Data and their corresponding figures exist in `SaveFiles` directories: in order to recreate the figures, follow these instructions
+
+| Figure(s) | Commands for simulation and creating figure |
+| ------------- | ------------- |
+| [1a_i](./RawFigures/Fig1a_1Init.png), [1a_ii](./RawFigures/Fig1a_2PAP.png), [1a_iii](./RawFigures/Fig1a_3End.png), [1a_iv](./RawFigures/Fig1a_4PostBreed.png), [2b_i](./RawFigures/Fig2b_L10.png),[2b_ii](./RawFigures/Fig2b_L20.png),[2b_iii](./RawFigures/Fig2b_L40.png) | `cp SaveFiles/MinL_10.00000_MaxL_40.00000_LNum_3_xbound_1000_dx_1.0E-01_PAP_1.0E-01_Phi_1.0E-05/Params.py .` <br> `python RunFile.py` <br> `python Plotting.py -d SaveFiles/MinL_10.00000_MaxL_40.00000_LNum_3_xbound_1000_dx_1.0E-01_PAP_1.0E-01_Phi_1.0E-05/` |
+| [1b](./RawFigures/Fig1b_SingleGlobalMinimum.png), [2a](./RawFigures/Fig2a_SingleGlobalMinimum.png) | `cp SaveFiles/MinL_0.01000_MaxL_100.00000_LNum_100_xbound_1000_dx_1.0E-03_PAP_1.0E-01_Phi_1.0E-05/Params.py .` <br> `python RunFile.py` <br> `python Plotting.py -d SaveFiles/MinL_0.01000_MaxL_100.00000_LNum_100_xbound_1000_dx_1.0E-03_PAP_1.0E-01_Phi_1.0E-05` |
+
+
