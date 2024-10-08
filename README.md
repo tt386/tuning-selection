@@ -109,7 +109,7 @@ For $P=0.1, \Phi=10^{-5}$ we vary the length of the Selection region and calcula
 
 For $P=0.1, \Phi=10^{-5}$ we run the same simulation as above, except with the additional option of restricting migration to only occur during the selection phase, the post-selection phase, both phases, or neither phase. Running once for each possibility with the same 
 
-![Different Dispersal TImes](./RawFigs/SuppFig_DifferentMigrations.png)
+![Different Dispersal TImes](./RawFigs/Fig2d_DifferentDispersals.png)
 
 
 ##### SingleSystemEvolution
@@ -130,8 +130,6 @@ We once again vary the size of the Selection region size $L$, but for different 
 
 The case of an infinite sequence of Selection and Refuge regions, effectively meaning there is a comparatively small region of Refuge and Selection regions with periodic boundary conditions. The width of the periodic sub-unit is $K$ and the proportion of the region which is Refuge is $\omega$.
 
-![Periodic Global Minimum](./RawFigs/Fig3a_PeriodicGlobalMinimum.png)
-
 ##### Global Minimum
 
 For $P=0.1, \Phi=10^{-5}, \omega=0.1$ we vary the length of the periodic sub-unit, $K$, and calculate the change in Resistant pests over a domain so large that the periodic effects of the circular convolution have negligible effect. The result is a detailed global minimum of change in Resistance number per periodic sub-region size with changing periodic sub-region size.
@@ -140,9 +138,9 @@ For $P=0.1, \Phi=10^{-5}, \omega=0.1$ we vary the length of the periodic sub-uni
 
 We again vary the periodic sub-region length $K$, but for different $\omega$ values in order to measure how the region of minimum gradient changes with $\omega$ to validate the analytical theory for a lower bound, and how the region of maximum curvature changes with $\omega$ to validate the analytical theory for the upper bound.
 
-![Periodic Allw](./RawFigs/Supplement_All_alpha.png)
+![Periodic Allw](./RawFigs/Fig3a_All_Alpha.png)
 
-![Periodic Bounds](./RawFigs/Fig3b_UpperBound_LowerBound_Minimum.png)
+![Periodic Bounds](./RawFigs/Fig3c_UpperBound_LowerBound_Minimum.png)
 
 
 
@@ -181,7 +179,7 @@ To recreate the data, navigate to the `Host Directory` and execute the correspon
 | [2ci](./RawFigs/Fig2ci_UpperBoundWithPhi.png) |`Simulations/Single/UpperBound/Vary_Phi` | `cp SaveFiles/MinL_0.10000_MaxL_1000.00000_LNum_100_xbound_1000_minPhi_-12_maxPhi_-1_Phinum_12_PAP_1.0E-01/Params.py .` <br> `python PhiRunFile.py` <br> `python MultiPlotting.py -d SaveFiles/MinL_0.10000_MaxL_1000.00000_LNum_100_xbound_1000_minPhi_-12_maxPhi_-1_Phinum_12_PAP_1.0E-01` |
 | [2cii](./RawFigs/Fig2ci_UpperBoundWithPAP.png) |`Simulations/Single/UpperBound/Vary_PAP` | `cp SaveFiles/MinL_0.10000_MaxL_1000.00000_LNum_100_xbound_1000_minPAP_0.100_maxPAP_0.900_PAPnum_9_Phi_1.0E-05/Params.py .` <br> `python PAPRunFile.py` <br> `python MultiPlotting.py -d SaveFiles/MinL_0.10000_MaxL_1000.00000_LNum_100_xbound_1000_minPAP_0.100_maxPAP_0.900_PAPnum_9_Phi_1.0E-05` |
 | [2d](./RawFigs/SuppFig_DifferentMigrations.png) |`Simulations/Single/RemovingDispersalEvents` | `cp SaveFiles/MinL_0.000001_MaxL_100.00000_LNum_100_xbound_10_dx_1.0E-07_PAP_1.0E-01_Phi_1.0E-05_AllMigrations/Params.py .` <br> `python RunFile.py` <br> `cp SaveFiles/MinL_0.000001_MaxL_100.00000_LNum_100_xbound_10_dx_1.0E-07_PAP_1.0E-01_Phi_1.0E-05_NoMigrations/Params.py .` <br> `python RunFile.py` <br>`cp SaveFiles/MinL_0.000001_MaxL_100.00000_LNum_100_xbound_10_dx_1.0E-07_PAP_1.0E-01_Phi_1.0E-05_OnlyPostSelectionMigration/Params.py .` <br> `python RunFile.py` <br> `cp SaveFiles/MinL_0.000001_MaxL_100.00000_LNum_100_xbound_10_dx_1.0E-07_PAP_1.0E-01_Phi_1.0E-05_OnlySelectionMigration/Params.py .` <br> `python RunFile.py` <br> `python MultiPlotting.py -d SaveFiles` |
-| [3a](./RawFigs/Supplement_All_alpha.png), [3c](./RawFigs/Fig3b_UpperBound_LowerBound_Minimum.png) | `Simulations/Periodic/Vary_w` | `cp SaveFiles/MinK_0.10000_MaxK_1000.00000_KNum_100_minw_0.100_maxw_0.900_wnum_9_PAP_1.0E-01_Phi_1.0E-05/Params.py .` <br> `python wRunFile.py` <br> `python MultiPlotting.py -d SaveFiles/MinK_0.10000_MaxK_1000.00000_KNum_100_minw_0.100_maxw_0.900_wnum_9_PAP_1.0E-01_Phi_1.0E-05` |
+| [3a](./RawFigs/Fig3a_All_Alpha.png), [3c](./RawFigs/Fig3c_UpperBound_LowerBound_Minimum.png) | `Simulations/Periodic/Vary_w` | `cp SaveFiles/MinK_0.10000_MaxK_1000.00000_KNum_100_minw_0.100_maxw_0.900_wnum_9_PAP_1.0E-01_Phi_1.0E-05/Params.py .` <br> `python wRunFile.py` <br> `python MultiPlotting.py -d SaveFiles/MinK_0.10000_MaxK_1000.00000_KNum_100_minw_0.100_maxw_0.900_wnum_9_PAP_1.0E-01_Phi_1.0E-05` |
 | [3b](./RawFigs/Fig3a_PeriodicGlobalMinimum.png) |`Simulations/Periodic/GlobalMinimum` | `cp SaveFiles/MinK_0.10000_MaxK_1000.00000_KNum_100_w_0.100_dx_1.0E-04_PAP_1.0E-01_Phi_1.0E-05/Params.py .` <br> `python RunFile.py` <br> `python Plotting.py -d SaveFiles/MinK_0.10000_MaxK_1000.00000_KNum_100_w_0.100_dx_1.0E-04_PAP_1.0E-01_Phi_1.0E-05` |
 | 5 |`Simulations/Constrained_Infinite` | `cp SaveFiles/C_100.000_d_0.100_MinN_1.00000_MaxN_200.00000_NNum_200_xbound_1000_dx_1.0E-03_PAP_1.0E-01_Phi_1.0E-05/Params.py .` <br> `python RunFile.py` <br> `cp SaveFiles/C_100.000_d_10.000_MinN_1.00000_MaxN_200.00000_NNum_200_xbound_1000_dx_5.0E-03_PAP_1.0E-01_Phi_1.0E-05/Params.py .` <br> `python RunFile.py` <br> `cp SaveFiles/C_100.000_d_1.000_MinN_1.00000_MaxN_200.00000_NNum_200_xbound_1000_dx_5.0E-03_PAP_1.0E-01_Phi_1.0E-05/Params.py .` <br> `python RunFile.py` <br> `cp SaveFiles/C_10.000_d_0.100_MinN_1.00000_MaxN_100.00000_NNum_100_xbound_1000_dx_1.0E-03_PAP_1.0E-01_Phi_1.0E-05/Params.py .` <br> `python RunFile.py` <br> `cp SaveFiles/C_10.000_d_10.000_MinN_1.00000_MaxN_100.00000_NNum_100_xbound_1000_dx_1.0E-03_PAP_1.0E-01_Phi_1.0E-05/Params.py .` <br> `python RunFile.py` <br> `cp SaveFiles/C_10.000_d_1.000_MinN_1.00000_MaxN_100.00000_NNum_100_xbound_1000_dx_1.0E-03_PAP_1.0E-01_Phi_1.0E-05/Params.py .` <br> `python RunFile.py` <br> `cp SaveFiles/C_1.000_d_0.100_MinN_1.00000_MaxN_1000.00000_NNum_42_xbound_100_dx_1.0E-05_PAP_1.0E-01_Phi_1.0E-05/Params.py .` <br> `python RunFile.py` <br> `cp SaveFiles/C_1.000_d_10.000_MinN_1.00000_MaxN_1000.00000_NNum_42_xbound_100_dx_1.0E-05_PAP_1.0E-01_Phi_1.0E-05/Params.py .` <br> `python RunFile.py` <br> `cp SaveFiles/C_1.000_d_1.000_MinN_1.00000_MaxN_1000.00000_NNum_42_xbound_100_dx_1.0E-05_PAP_1.0E-01_Phi_1.0E-05/Params.py .` <br> `python RunFile.py` <br> `bash BashPlotting.sh` |
 | 6 |`Simulations/Constrained_Finite` | `cp SaveFiles/D_1000.000_B_0.500_MinN_1.00000_MaxN_2001.00000_NNum_201_xbound_1000_dx_2.5E-03_PAP_1.0E-01_Phi_1.0E-05/Params.py .` <br> `python RunFile.py` <br> `cp SaveFiles/D_1000.000_B_0.800_MinN_1.00000_MaxN_2001.00000_NNum_201_xbound_1000_dx_1.0E-03_PAP_1.0E-01_Phi_1.0E-05/Params.py .` <br> `python RunFile.py` <br> `cp SaveFiles/D_100.000_B_0.500_MinN_1.00000_MaxN_200.00000_NNum_200_xbound_1000_dx_2.5E-03_PAP_1.0E-01_Phi_1.0E-05/Params.py .` <br> `python RunFile.py` <br> `cp SaveFiles/D_100.000_B_0.800_MinN_1.00000_MaxN_200.00000_NNum_200_xbound_1000_dx_1.0E-03_PAP_1.0E-01_Phi_1.0E-05/Params.py .` <br> `python RunFile.py` <br> `cp SaveFiles/D_10.000_B_0.500_MinN_1.00000_MaxN_20.00000_NNum_20_xbound_1000_dx_2.5E-03_PAP_1.0E-01_Phi_1.0E-05/Params.py .` <br> `python RunFile.py` <br> `cp SaveFiles/D_10.000_B_0.800_MinN_1.00000_MaxN_20.00000_NNum_20_xbound_1000_dx_1.0E-03_PAP_1.0E-01_Phi_1.0E-05/Params.py .` <br> `python RunFile.py` <br> `bash BashPlotting.sh` |
