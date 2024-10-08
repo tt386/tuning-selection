@@ -15,14 +15,13 @@ Sources=(
 	Simulations/Single/SingleSystemEvolution/SaveFiles/MinL_10.00000_MaxL_40.00000_LNum_3_xbound_1000_dx_1.0E-01_PAP_1.0E-01_Phi_1.0E-05/L_10.00000/5_PostBreedROnly.png
 	Simulations/Single/UpperBound/Vary_Phi/SaveFiles/MinL_0.10000_MaxL_1000.00000_LNum_100_xbound_1000_minPhi_-12_maxPhi_-1_Phinum_12_PAP_1.0E-01/LU.png
 	Simulations/Single/UpperBound/Vary_PAP/SaveFiles/MinL_0.10000_MaxL_1000.00000_LNum_100_xbound_1000_minPAP_0.100_maxPAP_0.900_PAPnum_9_Phi_1.0E-05/LU.png
+	Simulations/Single/RemovingDispersalEvents/SaveFiles/dR.png
 
+	Simulations/Periodic/Vary_w/SaveFiles/MinK_0.10000_MaxK_1000.00000_KNum_100_minw_0.100_maxw_0.900_wnum_9_PAP_1.0E-01_Phi_1.0E-05/AllMinPlots.png
 	Simulations/Periodic/Global_Minimum/SaveFiles/MinK_0.10000_MaxK_1000.00000_KNum_100_w_0.100_dx_1.0E-04_PAP_1.0E-01_Phi_1.0E-05/K_2.59502/PAP_And_End.png
 	Simulations/Periodic/Global_Minimum/SaveFiles/MinK_0.10000_MaxK_1000.00000_KNum_100_w_0.100_dx_1.0E-04_PAP_1.0E-01_Phi_1.0E-05/K_97.70100/PAP_And_End.png
 	Simulations/Periodic/Global_Minimum/SaveFiles/MinK_0.10000_MaxK_1000.00000_KNum_100_w_0.100_dx_1.0E-04_PAP_1.0E-01_Phi_1.0E-05/dR_Detail.png
-	Simulations/Periodic/Vary_w/SaveFiles/MinK_0.10000_MaxK_1000.00000_KNum_100_minw_0.100_maxw_0.900_wnum_9_PAP_1.0E-01_Phi_1.0E-05/LL.png
-	Simulations/Periodic/Vary_w/SaveFiles/MinK_0.10000_MaxK_1000.00000_KNum_100_minw_0.100_maxw_0.900_wnum_9_PAP_1.0E-01_Phi_1.0E-05/LU.png
 	Simulations/Periodic/Vary_w/SaveFiles/MinK_0.10000_MaxK_1000.00000_KNum_100_minw_0.100_maxw_0.900_wnum_9_PAP_1.0E-01_Phi_1.0E-05/Both.png
-	Simulations/Periodic/Vary_w/SaveFiles/MinK_0.10000_MaxK_1000.00000_KNum_100_minw_0.100_maxw_0.900_wnum_9_PAP_1.0E-01_Phi_1.0E-05/AllMinPlots.png
 
 	Simulations/Constrained_Infinite/SaveFiles/C_100.000_d_0.100_MinN_1.00000_MaxN_200.00000_NNum_200_xbound_1000_dx_1.0E-03_PAP_1.0E-01_Phi_1.0E-05/dR.png
 	Simulations/Constrained_Infinite/SaveFiles/C_100.000_d_10.000_MinN_1.00000_MaxN_200.00000_NNum_200_xbound_1000_dx_5.0E-03_PAP_1.0E-01_Phi_1.0E-05/dR.png
@@ -41,10 +40,6 @@ Sources=(
 	Simulations/Constrained_Finite/SaveFiles/D_1000.000_B_0.500_MinN_1.00000_MaxN_2001.00000_NNum_201_xbound_1000_dx_2.5E-03_PAP_1.0E-01_Phi_1.0E-05/dR.png
 	Simulations/Constrained_Finite/SaveFiles/D_1000.000_B_0.800_MinN_1.00000_MaxN_2001.00000_NNum_201_xbound_1000_dx_1.0E-03_PAP_1.0E-01_Phi_1.0E-05/dR.png
 
-	Simulations/Single/Global_Minimum/SaveFiles/dR.png
-
-	Simulations/Single/RemovingDispersalEvents/SaveFiles/dR.png
-
 	)
 
 Names=(
@@ -60,14 +55,13 @@ Names=(
 	Fig2b_L10.png
 	Fig2ci_UpperBoundWithPhi.png
 	Fig2cii_UpperBoundWithPAP.png
+	Fig2d_DifferentDispersals.png
 
-	Fig3ai_Smallk.png
-	Fig3aii_Largek.png
-	Fig3a_PeriodicGlobalMinimum.png
-	Fig3bi_LowerBoundWithw.png
-	Fig3bii_UpperBoundWithw.png
-	Fig3b_UpperBound_LowerBound_Minimum.png
-	Supplement_All_alpha.png
+	Fig3a_All_Alpha.png
+	Fig3bi_Smallk.png
+	Fig3bii_Largek.png
+	Fig3b_PeriodicGlobalMinimum.png
+	Fig3c_UpperBound_LowerBound_Minimum.png
 
 	Fig5_C100_d0.1.png
 	Fig5_C100_d10.png
@@ -86,8 +80,6 @@ Names=(
 	Fig6_D1000_B0.5.png
         Fig6_D1000_B0.8.png
 
-	SuppFig_p_0_0.1_1.png
-	SuppFig_DifferentMigrations.png
 	)
 
 for i in "${!Sources[@]}"; do
