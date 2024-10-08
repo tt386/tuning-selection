@@ -154,7 +154,7 @@ Consider a total amount of space where it is possible for Selection region to be
 
 ## Reproducing figures
 
-Data and their corresponding figures exist in `SaveFiles` directories: in order to recreate the figures, follow these instructions
+To recreate the data, navigate to the `Host Directory` and execute the corresponding commands.
 
 | Figure(s) | Host Directory | Commands for simulation and creating figure |
 | -------------| ------------- | ------------- |
