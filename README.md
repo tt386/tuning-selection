@@ -74,6 +74,8 @@ Below is a tree respresenting the structure of directories.
     │   └── Vary_w
     └── Single
         ├── Global_Minimum
+        ├── RemovingDispersalEvents
+        ├── SingleSystemEvolution
         └── UpperBound
             ├── Vary_PAP
             └── Vary_Phi
@@ -102,6 +104,20 @@ For $P=0.1, \Phi=10^{-5}$ we vary the length of the Selection region and calcula
 
 ![Single Global Minimum](./RawFigs/Fig1b_SingleGlobalMinimum.png)
 
+
+##### RemovingDispersalEvents
+
+For $P=0.1, \Phi=10^{-5}$ we run the same simulation as above, except with the additional option of restricting migration to only occur during the selection phase, the post-selection phase, both phases, or neither phase. Running once for each possibility with the same 
+
+![Different Dispersal TImes](./RawFigs/SuppFig_DifferentMigrations.png)
+
+
+##### SingleSystemEvolution
+
+For $P=0.1, \Phi=10^{-5}$ we run an isolated selection region case for a given $L$, for the sake of visualising how the distribution of each subpopulation changes over a generation 
+
+![Initial Distribution](./RawFigs/Fig1a_1Init.png)
+
 ##### UpperBound
 
 We once again vary the size of the Selection region size $L$, but for different $P$ or $\Phi$ values in `Vary_PAP` and `Vary_Phi`, respectively. This is in order to measure how the region of highest curvature changes with these values, to validate the analytical theory.
@@ -124,9 +140,11 @@ For $P=0.1, \Phi=10^{-5}, \omega=0.1$ we vary the length of the periodic sub-uni
 
 We again vary the periodic sub-region length $K$, but for different $\omega$ values in order to measure how the region of minimum gradient changes with $\omega$ to validate the analytical theory for a lower bound, and how the region of maximum curvature changes with $\omega$ to validate the analytical theory for the upper bound.
 
-![Periodic LowerBound](./RawFigs/Fig3bi_LowerBoundWithw.png)
+![Periodic Allw](./RawFigs/Supplement_All_alpha.png)
 
-![Periodic UpperBound](./RawFigs/Fig3bii_UpperBoundWithw.png)
+![Periodic Bounds](./RawFigs/Fig3b_UpperBound_LowerBound_Minimum.png)
+
+
 
 #### Constrained Infinite
 
