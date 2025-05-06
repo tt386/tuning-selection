@@ -16,7 +16,7 @@
 
 ## Publication
 
-Manuscript published in XXX in 2023 by Thomas Tunstall, Philip Madgwick, Ricardo Kanitz, and Wolfram Möbius. The corresponding preprint can be found on arXiv XXX.
+Work undertaken by Thomas Tunstall, Philip Madgwick, Ricardo Kanitz, and Wolfram Möbius. The corresponding preprint can be found on [arXiv](https://doi.org/10.1101/2024.10.23.619847).
 
 We have included all data files and results pertinent to the manuscript (except those larger than 100MB).
 
