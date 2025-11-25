@@ -9,6 +9,14 @@ Sources=(
 	Simulations/Single/SingleSystemEvolution/SaveFiles/MinL_10.00000_MaxL_40.00000_LNum_3_xbound_1000_dx_1.0E-01_PAP_1.0E-01_Phi_1.0E-05/L_10.00000/4_PostBreed.png
 	Simulations/Single/Global_Minimum/SaveFiles/MinL_0.01000_MaxL_100.00000_LNum_100_xbound_1000_dx_1.0E-03_PAP_1.0E-01_Phi_1.0E-05/dR.png
 
+
+	Simulations/2D/Global_Minimum_Square/SaveFiles/Minw_0.10000_Maxw_100.00000_LNum_31_PAP_1.0E-01_Phi_1.0E-05_dt_1.0E-03_dx_1.0E-03/dR.png
+	Simulations/2D/Changing_Width_Only/SaveFiles/Together.png
+	
+
+
+
+
 	Simulations/Single/Global_Minimum/SaveFiles/MinL_0.01000_MaxL_100.00000_LNum_100_xbound_1000_dx_1.0E-03_PAP_1.0E-01_Phi_1.0E-05/dR_Stretch.png
 	Simulations/Single/SingleSystemEvolution/SaveFiles/MinL_10.00000_MaxL_40.00000_LNum_3_xbound_1000_dx_1.0E-01_PAP_1.0E-01_Phi_1.0E-05/L_40.00000/5_PostBreedROnly.png
 	Simulations/Single/SingleSystemEvolution/SaveFiles/MinL_10.00000_MaxL_40.00000_LNum_3_xbound_1000_dx_1.0E-01_PAP_1.0E-01_Phi_1.0E-05/L_20.00000/5_PostBreedROnly.png
@@ -48,6 +56,9 @@ Names=(
 	Fig1a_3End.png
 	Fig1a_4PostBreed.png
 	Fig1b_SingleGlobalMinimum.png
+
+	2D_ChangingSize.png
+	2D_ChangingAspectRatio.png
 
 	Fig2a_SingleGlobalMinimum.png
 	Fig2b_L40.png

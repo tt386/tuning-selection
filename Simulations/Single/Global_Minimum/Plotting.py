@@ -335,6 +335,10 @@ fig_height_mm = 90
 
 fig = plt.figure(2)
 ax = fig.add_subplot(111)
+
+print("LList:",LList)
+print("dRList:",dRList)
+
 plt.plot(np.log10(LList),np.log10(dRList/LList), '-k',linewidth=5)
 
 plt.figure(2).set_size_inches(fig_width_mm/25.4,fig_height_mm/25.4,forward=True)
