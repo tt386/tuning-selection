@@ -99,10 +99,13 @@ for i in range(len(HeightList)):
     plt.plot(np.log10(LList/Height),np.log10(dRList/(LList*Height)), '-k',linewidth=5)
 
     symbol = "o"
-    if i == 1: symbol = "s"
-    if i == 2: symbol = "*"
+    if Height == 1: symbol = "s"
+    if Height == 10: symbol = "*"
 
-    plt.scatter([np.log10(LList/Height)[-1]],[np.log10(dRList/(LList*Height))[-1]],marker=symbol,s=100,zorder=10,color='red')
+    size = 100
+    if Height == 10: size=150
+
+    plt.scatter([np.log10(LList/Height)[-1]],[np.log10(dRList/(LList*Height))[-1]],marker=symbol,s=size,zorder=10,color='red')
 
 
     print(Height,np.log10(dRList/(LList*Height))[-1])
