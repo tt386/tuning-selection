@@ -12,7 +12,7 @@ Sources=(
 
 	Simulations/2D/Global_Minimum_Square/SaveFiles/Minw_0.10000_Maxw_100.00000_LNum_31_PAP_1.0E-01_Phi_1.0E-05_dt_1.0E-03_dx_1.0E-03/dR.png
 	Simulations/2D/Changing_Width_Only/SaveFiles/Together.png
-	
+	Simulations/2D/HeatMap/SaveFiles/Minw_0.56234_Maxw_10.00000_wNum_21_Minh_0.56234_Maxh_10.00000_hNum_21_PAP_1.0E-01_Phi_1.0E-05_dt_1.0E-03_dx_1.0E-03/dR_Truncated.png	
 
 
 
@@ -59,6 +59,7 @@ Names=(
 
 	2D_ChangingSize.png
 	2D_ChangingAspectRatio.png
+	2D_HeatMap.png
 
 	Fig2a_SingleGlobalMinimum.png
 	Fig2b_L40.png
