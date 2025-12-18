@@ -165,10 +165,11 @@ dRList_1D = np.asarray([8.51868199e-06, 8.53221486e-06, 8.54707474e-06, 8.563391
 
 plt.plot(np.log10(LList_1D[LList_1D>0.1]),np.log10(dRList_1D[LList_1D>0.1]/LList_1D[LList_1D>0.1]), '-k',alpha=0.5,linewidth=5)
 
+"""
 plt.scatter(np.log10(0.1),-4.036291805290577,marker = 'o',color='red',s=100,zorder=10)
 plt.scatter(np.log10(1),-4.593865661116883,marker = 's',color='red',s=100,zorder=10)
 plt.scatter(np.log10(10),-1.9406449928450782,marker = '*',color='red',s=150,zorder=10)
-
+"""
 
 #Formatting
 plt.xticks([-1,0,1,2])
