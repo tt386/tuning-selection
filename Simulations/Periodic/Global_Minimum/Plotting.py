@@ -613,9 +613,9 @@ plt.text(0.1,-2.5,r"$\alpha=%0.1f$"%(w),fontsize=30,fontname="Arial")
 
 
 #Formatting
-ax.set_xticks([0,MinGradient,MindR,MinCurvature,2])
+ax.set_xticks([0,MinGradient,MindR,1,MinCurvature,2])
 ax.set_xticklabels(
-    [r'$10^0$',r'$k_{L}$',r'$k^{*}$',r'$k_{U}$',r'$10^2$'])
+    [r'$10^0$',r'$k_{L}$',r'$k^{*}$',r'$10^1$',r'$k_{U}$',r'$10^2$'])
 
 ax.set_yticks([-4,-2,0])
 ax.set_yticklabels(
