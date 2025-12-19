@@ -57,6 +57,8 @@ ApproxIntegral = Core.dR(Phi,EndDist,xlist)
 
 * The fourth line produces a float which is the measure by which the Resistant population has increased: Following breeding, the differences between the final and initial Resistant distributions is integrated over all space.
 
+Please note that parameter names may differ from those in the publication.
+
 ## Directory structure and exectuing code
 
 Below is a tree respresenting the structure of directories.
