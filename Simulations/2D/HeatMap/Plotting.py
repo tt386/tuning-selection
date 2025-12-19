@@ -351,7 +351,7 @@ ticks = [vmin,vmax]#[2e-5, 3e-5]
 cbar.set_ticks(ticks)
 
 # LaTeX-style labels (what is displayed)
-cbar.set_ticklabels([r'$-4.7$', r'$-4.5$'])
+cbar.set_ticklabels([r'$10^{-4.7}$', r'$10^{-4.5}$'])
 
 
 cbar.ax.tick_params(labelsize=30)
