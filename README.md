@@ -59,6 +59,18 @@ ApproxIntegral = Core.dR(Phi,EndDist,xlist)
 
 Variables names here correspond to those in the paper. Variables used in code may deviate.
 
+### Dependencies
+
+The following Python modules are required:
+
+```
+numpy
+scipy
+matplotlib
+ArgumentParser
+time
+```
+
 ## Directory structure and exectuing code
 
 Below is a tree respresenting the structure of directories.
