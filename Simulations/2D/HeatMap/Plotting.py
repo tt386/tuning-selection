@@ -229,7 +229,7 @@ W, H = np.meshgrid(width_vals, height_vals)
 alpha = np.ones_like(Z, dtype=float)
 
 # Fade the redundant half (edit sign if you want the opposite triangle)
-alpha[W < H] = 0.5     # 25% opacity for mirrored half
+alpha[W > H] = 0.5     # 25% opacity for mirrored half
 
 # -----------------------------
 # Log-scale colour normalisation
@@ -239,11 +239,13 @@ from matplotlib.colors import LogNorm
 
 Z = np.ma.masked_where(Z <= 0, Z)   # LogNorm safety
 
-vals = Z[Z > 0]
-vmin = np.percentile(vals, 1)
-vmax = np.percentile(vals, 99)
+vals = np.log10(Z)#Z[Z > 0]
+#vmin = np.percentile(vals, 1)
+#vmax = np.percentile(vals, 99)
 
-norm = LogNorm(vmin=vmin, vmax=vmax)
+print(np.min(vals))
+
+norm = LogNorm(np.min(vals),np.max(vals))#(vmin=vmin, vmax=vmax)
 
 # -----------------------------
 # Plot FULL square, with transparency
@@ -254,8 +256,8 @@ fig, ax = plt.subplots()
 pc = ax.pcolormesh(
     width_vals,
     height_vals,
-    Z,
-    norm=norm,
+    np.log10(Z),
+    #norm=norm,
     cmap='plasma',
     shading='auto',
     alpha=alpha
@@ -315,25 +317,41 @@ plt.savefig(str(args.directory) + "/dR.eps", bbox_inches='tight', dpi=300)
 
 cbar.remove()
 
-vmin = 2e-5
-vmax = 3e-5
+vmin = -4.7#2e-5
+vmax = -4.5#3e-5
 
-pc.set_norm(LogNorm(vmin=vmin, vmax=vmax))
+#pc.set_norm(LogNorm(vmin=vmin, vmax=vmax))
+
+truncation = np.log10(Z)
+truncation = np.ma.masked_invalid(truncation)
+truncation = np.clip(truncation, vmin, vmax)
+
+pc = ax.pcolormesh(
+    width_vals,
+    height_vals,
+    truncation,
+    #norm=norm,
+    vmin=vmin,
+    vmax=vmax,
+    cmap='plasma',
+    shading='auto',
+    alpha=alpha
+)
 
 
 fig.canvas.draw()
 
-cbar = fig.colorbar(pc, ax=ax, extend='max')
+cbar = fig.colorbar(pc, ax=ax, extend='both')
 
 
 # Tick positions in real data units
-ticks = [2e-5, 3e-5]
+ticks = [vmin,vmax]#[2e-5, 3e-5]
 
 # Apply ticks
 cbar.set_ticks(ticks)
 
 # LaTeX-style labels (what is displayed)
-cbar.set_ticklabels([r'$2$', r'$3$'])
+cbar.set_ticklabels([r'$-4.7$', r'$-4.5$'])
 
 
 cbar.ax.tick_params(labelsize=30)
