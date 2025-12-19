@@ -67,8 +67,7 @@ The following Python modules are required:
 numpy
 scipy
 matplotlib
-ArgumentParser
-time
+argparse
 ```
 
 ## Directory structure and exectuing code
