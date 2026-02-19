@@ -235,6 +235,8 @@ for i in dirlist:
     plt.savefig(str(i) + "/5_PostBreedROnly.png",bbox_inches='tight',dpi=300)
     plt.close()
 
+
+"""
 LList,dRList = zip(*sorted(zip(LList,dRList)))
 if len(LList) > 1:
     LList = np.asarray(LList)
@@ -292,9 +294,9 @@ if len(LList) > 1:
 
 
 
+"""
 
-
-
+"""
     #########################################################################
     # Change in R with changing L
     fig = plt.figure()
@@ -391,7 +393,7 @@ if len(LList) > 1:
 
 
     #########################################################################
-
+"""
 
 
 
