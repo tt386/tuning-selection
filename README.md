@@ -1,4 +1,4 @@
-# Code for "Tuning Selection pressure..."
+# Code for "Tuning spatial distributions of selection pressure to suppress emergence of resistance"
 
 ## Overview
 
@@ -8,14 +8,14 @@
 
 [Structure of simulation code](#structure-of-simulation-code)
 
-[Directory structure and exectuing code](#directory-structure-and-executing-code)
+[Directory structure and executing code](#directory-structure-and-executing-code)
 
 [Reproducing figures](#reproducing-figures)
 
 
 ## Publication
 
-Work undertaken by Thomas Tunstall, Philip Madgwick, Ricardo Kanitz, and Wolfram Möbius. The corresponding preprint can be found on [bioRxiv](https://doi.org/10.1101/2024.10.23.619847).
+Work undertaken by Thomas Tunstall, Philip Madgwick, Ricardo Kanitz, and Wolfram Möbius. The corresponding publication can be found at the [Journal of Theoretical Population Biology](https://doi.org/10.1016/j.tpb.2026.02.002).
 
 We have included all data files and results pertinent to the manuscript (except those larger than 100MB).
 
@@ -64,10 +64,10 @@ Variables names here correspond to those in the paper. Variables used in code ma
 The following Python modules are required:
 
 ```
-numpy
-scipy
-matplotlib
-argparse
+Python 3.10.9
+numpy 1.23.5
+scipy 1.10.0
+matplotlib 3.7.1
 ```
 
 ## Directory structure and exectuing code
